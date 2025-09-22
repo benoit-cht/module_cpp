@@ -13,6 +13,7 @@
 #include "phonebook.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <ctype.h>
 
 PhoneBook::PhoneBook() : numb_contact(0) {}
 
@@ -34,6 +35,6 @@ void	PhoneBook::search_contact() const
 		std::cout << contact[index].getName() << std::endl;
 	}
 	std::cin >> search;
-	if (std::stoi(search) < numb_contact)
+	if (search.length() == 1 && isdigit(search[0]) && std::stoi(search) <= numb_contact)
 		std::cout << contact[std::stoi(search) - 1].getContact() << std::endl;
 }
