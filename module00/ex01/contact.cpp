@@ -38,11 +38,20 @@ void Contact::setContact()
 
 }
 
-std::string Contact::getName() const
+std::string Contact::getFirstName() const
 {
     return (FirstName);
 }
 
+std::string Contact::getLastName() const
+{
+    return (LastName);
+}
+
+std::string Contact::getNickName() const
+{
+    return (NickName);
+}
 std::string	Contact::getContact() const
 {
 	std::cout << "First Name: " << FirstName;

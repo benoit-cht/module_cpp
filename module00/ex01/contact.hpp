@@ -26,7 +26,9 @@ class Contact {
 	
 	public:
 		void		setContact();
-		std::string	getName() const;
+		std::string	getFirstName() const;
+		std::string	getLastName() const;
+		std::string	getNickName() const;
 		std::string	getContact() const;
 
 };

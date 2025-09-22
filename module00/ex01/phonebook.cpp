@@ -32,7 +32,7 @@ void	PhoneBook::search_contact() const
 
 	for (int index = 0; index < numb_contact; index++)
 	{
-		std::cout << contact[index].getName() << std::endl;
+		std::cout << index + 1 << "|" << contact[index].getFirstName() << "|" << contact[index].getLastName() << "|" << contact[index].getNickName() << "|" << std::endl;
 	}
 	std::cin >> search;
 	if (search.length() == 1 && isdigit(search[0]) && std::stoi(search) <= numb_contact)
