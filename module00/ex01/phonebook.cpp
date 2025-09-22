@@ -37,4 +37,6 @@ void	PhoneBook::search_contact() const
 	std::cin >> search;
 	if (search.length() == 1 && isdigit(search[0]) && std::stoi(search) <= numb_contact)
 		std::cout << contact[std::stoi(search) - 1].getContact() << std::endl;
+	else
+		std::cout << "ERROR: input is not valid\n" << std::endl;
 }
