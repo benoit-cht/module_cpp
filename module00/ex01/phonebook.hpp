@@ -20,6 +20,7 @@ class	PhoneBook {
 	private:
 		Contact contact[8];
 		int	numb_contact;
+		int	last_add;
 	
 	public:
 		PhoneBook();

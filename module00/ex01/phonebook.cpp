@@ -15,15 +15,24 @@
 #include <cstdlib>
 #include <ctype.h>
 
-PhoneBook::PhoneBook() : numb_contact(0) {}
+PhoneBook::PhoneBook() : numb_contact(0),last_add(0) {}
 
 void	PhoneBook::add_contact(const Contact& c)
 {
-	if (numb_contact < 8)
+	if (last_add < 8)
 	{
-		contact[numb_contact] = c;
-		numb_contact++;
+		contact[last_add] = c;
+		//numb_contact++;
+		last_add++;
 	}
+	else
+	{
+		last_add = 0;
+		add_contact(c);
+	}
+	if (numb_contact < 8)
+		numb_contact++;
+
 }
 
 void	PhoneBook::search_contact() const
