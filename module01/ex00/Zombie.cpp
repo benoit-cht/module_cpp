@@ -10,4 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 
+Zombie::Zombie( std::string name) : name(name)
+{
+	std::cout << "Zombie" << name << std::endl;
+}
+
+void	Zombie:anouce(void)
+{
+	std::cout << name << "BraiiiiiiinnnnnzZ ..." << std::endl;
+}
+
+Zombie::~Zombie( void )
+{
+	std::cout << "Zombie" << name << "over" << std::endl;
+}
