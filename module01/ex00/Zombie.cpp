@@ -14,15 +14,15 @@
 
 Zombie::Zombie( std::string name) : name(name)
 {
-	std::cout << "Zombie" << name << std::endl;
+	std::cout << "Zombie " << name << " create"<<std::endl;
 }
 
-void	Zombie:anouce(void)
+void	Zombie::announce(void)
 {
 	std::cout << name << "BraiiiiiiinnnnnzZ ..." << std::endl;
 }
 
 Zombie::~Zombie( void )
 {
-	std::cout << "Zombie" << name << "over" << std::endl;
+	std::cout << "Zombie " << name << " dead" << std::endl;
 }

@@ -47,15 +47,15 @@ OBJS	=	$(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- philosopher --\n $(RESET)" 
+	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   ///$(BLUE) -- .exe --\n $(RESET)" 
 	@$(CCFLAG) -g3 $(OBJS) -o $(NAME)
 
 clean:
-	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete file obj PHI $(RESET)\n" 
+	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete file obj $(RESET)\n" 
 	@$(RMF) $(OBJDIR) $(OBJS)
 
 fclean:
-	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj PHI $(RESET)\n"
+	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file of make $(RESET)\n"
 	@$(RMF) $(OBJDIR) $(OBJS) $(NAME)
 
 re: fclean all
