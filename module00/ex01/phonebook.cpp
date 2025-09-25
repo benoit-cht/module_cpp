@@ -25,7 +25,6 @@ void	Format_chain(std::string str)
 			std::cout << str[length];
 		else
 			std::cout << " ";
-		//std::cout << length ;
 	}
 	if (str.length() > 10)
 		std::cout << ".";
