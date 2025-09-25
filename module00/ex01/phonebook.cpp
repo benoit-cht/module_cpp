@@ -19,16 +19,19 @@ PhoneBook::PhoneBook() : numb_contact(0),last_add(0) {}
 
 void	Format_chain(std::string str)
 {
-	for (int length = 0; length < 9; length++)
+	for (int length = 0; length + 1 <= 9; length++)
 	{
-		if (length <= str.length())
+		if (length < str.length())
 			std::cout << str[length];
 		else
 			std::cout << " ";
+		//std::cout << length ;
 	}
 	if (str.length() > 10)
 		std::cout << ".";
-	else
+	else if (str.length() == 10)
+		std::cout << str[9];
+	else if (str.length() < 10)
 		std::cout << " ";
 	std::cout << "|";
 }
@@ -56,7 +59,7 @@ void	PhoneBook::search_contact() const
 
 	for (int index = 0; index < numb_contact; index++)
 	{
-		std::cout << "\n" << index + 1 << "|";
+		std::cout << "\n|    " << index + 1 << "     |";
 		Format_chain(contact[index].getFirstName());
 		Format_chain(contact[index].getLastName());
 		Format_chain(contact[index].getNickName());
