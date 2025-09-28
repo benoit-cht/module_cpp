@@ -19,13 +19,10 @@ int	main(void)
 	Contact		c1;
 	std::string	input = "";
 
-	/*c1.setContact();
-	repertoire.add_contact(c1);
-	repertoire.search_contact();
-	*/
 	while (1)
 	{
-		std::getline(std::cin, input);
+		std::cout << "Enter a command [ADD, SEARCH, EXIT] : ";
+		std::cin >> input;
 		if (input == "EXIT")
 			break;
 		else if (input == "ADD")
@@ -34,7 +31,11 @@ int	main(void)
 			repertoire.add_contact(c1);
 		}
 		else if (input == "SEARCH")
+		{
 			repertoire.search_contact();
+		}
+		else
+			std::cerr << "ERROR : Unknown commande " << input << std::endl;
 	}
-	return 0;
+	return (EXIT_SUCCESS);
 }

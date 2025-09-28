@@ -13,6 +13,7 @@
 #ifndef	PHONEBOOK_HPP
 #define	PHONEBOOK_HPP
 
+#include <string>
 #include "contact.hpp"
 
 class	PhoneBook {
