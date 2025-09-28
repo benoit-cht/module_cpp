@@ -19,23 +19,33 @@ std::string	InputContact(void)
 	std::string	input = "";
 	
 	while (input == "")
-		std::getline(std::cin, input);		
+		if (!std::getline(std::cin, input))
+			return "";		
 	return (input);
 }
 
-void Contact::setContact()
+void	Contact::setContact()
 {
 	std::cout << "First Name: ";
 	FirstName = InputContact();
+	if (FirstName == "")
+		return ;
 	std::cout << "Last Name: ";
 	LastName = InputContact();
+	if (LastName == "")
+		return ;
 	std::cout << "NickName: ";
 	NickName = InputContact();
+	if (NickName == "")
+		return ;
 	std::cout << "PhoneNumber: ";
 	PhoneNumber = InputContact();
+	if (PhoneNumber == "")
+		return ;
 	std::cout << "DarkestSecret: ";
 	DarkestSecret = InputContact();
-
+	if (DarkestSecret == "")
+		return ;
 }
 
 std::string Contact::getFirstName() const

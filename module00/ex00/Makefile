@@ -30,7 +30,7 @@ NAME = Megaphone
 #				sources					#
 #=======================================================================#
 
-SRC	=	Megaphone.cpp
+SRC	=	megaphone.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
@@ -53,7 +53,7 @@ clean:
 	@$(RMF) $(OBJDIR) $(OBJS)
 
 fclean:
-	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj PHI $(RESET)\n"
+	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj $(RESET)\n"
 	@$(RMF) $(OBJDIR) $(OBJS) $(NAME)
 
 re: fclean all

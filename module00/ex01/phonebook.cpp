@@ -64,7 +64,8 @@ void	PhoneBook::search_contact() const
 		Format_chain(contact[index].getNickName());
 	}
 	std::cout << "\n" << std::endl;
-	std::cin >> search;
+	if (!std::getline(std::cin, search))
+		return ;
 	if (search.length() == 1 && isdigit(search[0]) && std::stoi(search) <= numb_contact)
 		std::cout << contact[std::stoi(search) - 1].getContact() << std::endl;
 	else
