@@ -31,9 +31,9 @@ NAME = ex03
 #=======================================================================#
 
 SRC	=	main.cpp	\
-		HumainA.cpp	\
-		HumainB.cpp	\
-		Weapon.cpp`	
+		HumanA.cpp	\
+		HumanB.cpp	\
+		Weapon.cpp	
 
 OBJS	=	$(SRC:.cpp=.o)
 
