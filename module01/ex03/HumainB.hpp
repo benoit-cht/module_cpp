@@ -10,4 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMAINB_HPP
+#define HUMAINB_HPP
+
+#include <string>
+#inlcude "Weapon.hpp"
+
+class	HumainB
+{
+	private :
+		std::string	name;
+		Waepon&		weapon;
+	public :
+		HumainB(std::string name);
+		void	setWeapon(Weapon& weapon);
+		void	attack() const;
+};
+
+#endif
 
