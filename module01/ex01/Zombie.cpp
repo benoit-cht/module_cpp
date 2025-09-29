@@ -31,3 +31,8 @@ Zombie::~Zombie( void )
 {
 	std::cout << "Zombie " << name << " dead" << std::endl;
 }
+
+void	Zombie::setname(std::string name)
+{
+	this->name = name;
+}
