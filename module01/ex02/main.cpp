@@ -18,14 +18,14 @@ int	main(void)
 	std::string*	stringPTR = &string;
 	std::string&	stringREF = string;
 
-	std::cout	<< "" << &string << std::endl
-			<< "" << stringPTR << std::endl
-			<< "" << &stringREF << std::endl
-			<< std::endl;
+	std::cout	<< " Adress de la string en memoire : " << &string    << std::endl
+			<< " Adress stockee  dans stringPTR : " << stringPTR  << std::endl
+			<< " Adress stockee  dans stringREF : " << &stringREF << std::endl
+			<< "------------------------------------------------" <<std::endl;
 
-	std::cout 	<< "" << string << std::endl
-			<< "" << *stringPTR << std::endl
-			<< "" << stringREF << std::endl;
+	std::cout 	<< " Valeur de la string via la variable : " << string << std::endl
+			<< " Valeur de la string via   stringPTR : " << *stringPTR << std::endl
+			<< " Valeur de la string via   stringREF : " << stringREF << std::endl;
 
 	return (0);
 }
