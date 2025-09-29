@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "Zombie.hpp"
 
+Zombie*	zombieHorde( int N, std::string name )
+{
+	Zombie*	horde = new Zombie[N];
+	for(int index; index < N; index++)
+		horde[index] = Zombie(name);
+	return horde ;
+}
