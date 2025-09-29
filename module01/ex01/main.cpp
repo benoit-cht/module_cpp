@@ -14,10 +14,11 @@
 
 int main(void)
 {
-    Zombie *Heap = newZombie("Heap");
+	int	N = 5;
+	Zombie* horde = zombieHorde(N, "my_horde");
 
-    Heap->announce();
-    randomChump("Stack");
-    delete Heap;
-    return (0);
+	for (int index = 0; index < N; index++)
+		horde[index].announce();
+	delete[] horde;
+    return EXIT_SUCCESS;
 }

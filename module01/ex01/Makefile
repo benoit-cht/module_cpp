@@ -24,13 +24,15 @@ CCFLAG = clang++ -g3 -Wall -Wextra -Werror -std=c++98
 #CCFLAG = cc -g -Wall -Wextra -Werror -fsanitize=address
 RMF = rm -rf
 
-NAME = 
+NAME = zombieHorde.exe 
 
 #=======================================================================#
 #				sources					#
 #=======================================================================#
 
-SRC	=
+SRC	=	main.cpp	\
+		Zombie.cpp	\
+		zombieHorde.cpp	
 
 OBJS	=	$(SRC:.cpp=.o)
 

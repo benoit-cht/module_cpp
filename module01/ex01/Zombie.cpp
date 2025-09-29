@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+		
+Zombie::Zombie() : name("DefaultZombie")
+{
+	std::cout << "Zombie " << name << " created" << std::endl;
+}
 
 Zombie::Zombie( std::string name) : name(name)
 {
