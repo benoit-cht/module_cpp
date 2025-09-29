@@ -24,13 +24,16 @@ CCFLAG = clang++ -g3 -Wall -Wextra -Werror -std=c++98
 #CCFLAG = cc -g -Wall -Wextra -Werror -fsanitize=address
 RMF = rm -rf
 
-NAME = Megaphone
+NAME = ex03
 
 #=======================================================================#
 #				sources					#
 #=======================================================================#
 
-SRC	=	Megaphone.cpp
+SRC	=	main.cpp	\
+		HumainA.cpp	\
+		HumainB.cpp	\
+		Weapon.cpp`	
 
 OBJS	=	$(SRC:.cpp=.o)
 
