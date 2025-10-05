@@ -18,10 +18,10 @@
 
 class Harl{
 	public :
-		void	_Debug( void );
-		void	_Info( void );
-		void	_Warning( void );
-		void	_Error(void );
+		void	_debug( void );
+		void	_info( void );
+		void	_warning( void );
+		void	_error( void );
 	private :
 		void	complain(std:string level);
 };
