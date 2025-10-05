@@ -21,7 +21,7 @@ MySedLoser::MySedLoser(std::ifstream& inputfile, std::ofstream& outputfile, std:
 
 MySedLoser::~MySedLoser( void ) {} ;
 
-std::string	MySedLoser::ReplaceOcurrences(const string& line, const string& s1, const string& s2)
+std::string	MySedLoser::ReplaceOcurrences(const std::string& line, const std::string& s1, const std::string& s2)
 {
 	std::string	newline = "";
 	size_t		start 	= 0;

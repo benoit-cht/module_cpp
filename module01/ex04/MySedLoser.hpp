@@ -17,20 +17,18 @@
 #include <string>
 #include <fstream>
 
-using namespace std;
-
 class	MySedLoser 
 {
 	private :
-		ifstream&	_filename;
-		ofstream&	_filereplace;
-		string		_target;
-		string		_replace;
+		std::ifstream&	_filename;
+		std::ofstream&	_filereplace;
+		std::string	_target;
+		std::string	_replace;
 	public :
 		MySedLoser(std::ifstream& inputfile, std::ofstream& outputfile, std::string& s1, std::string& s2);
 		~MySedLoser ( void );
 	public :
-		std::string	ReplaceOcurrences(const string& line, const string& s1, const string& s2);
+		std::string	ReplaceOcurrences(const std::string& line, const std::string& s1, const std::string& s2);
 		void		WriteInFile(std::ifstream& infile, std::ofstream& outfile, std::string& s1, std::string& s2);
 };
 
