@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 
+int	main (int ac, char *av[])
+{
+	if (ac != 4)
+		return (EXIT_FAILURE);
+	std::cout << av[0][1] << std::endl;
+	return (EXIT_SUCCESS);
+}
