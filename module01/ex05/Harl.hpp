@@ -10,4 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HARL_HPP
+#define HARL_HPP
 
+#include <iostream>
+#include <string>
+
+class Harl{
+	public :
+		void	_Debug( void );
+		void	_Info( void );
+		void	_Warning( void );
+		void	_Error(void );
+	private :
+		void	complain(std:string level);
+};
+
+#endif
