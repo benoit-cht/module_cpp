@@ -47,6 +47,9 @@ int	main (int ac, char *av[])
 		return (EXIT_SUCCESS);
 	}
 
+	MySedLoser	msl(inputFile, outputFile, s1, s2);
+	msl.WriteInFile(inputFile, outputFile, s1, s2);
+
 	inputFile.close();
 	outputFile.close();
 	return (EXIT_SUCCESS);

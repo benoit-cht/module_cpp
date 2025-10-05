@@ -37,7 +37,7 @@ NAME	= ex04
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp
+SRC	=	main.cpp MySedLoser.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 

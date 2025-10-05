@@ -22,15 +22,16 @@ using namespace std;
 class	MySedLoser 
 {
 	private :
-		string	_filename;
-		string	_filereplace;
-		string	_target;
-		string	_replace;
+		ifstream&	_filename;
+		ofstream&	_filereplace;
+		string		_target;
+		string		_replace;
 	public :
-		MySedLoser(string& _filename, string& _filereplace, string& _target, string& _replace); 
+		MySedLoser(std::ifstream& inputfile, std::ofstream& outputfile, std::string& s1, std::string& s2);
 		~MySedLoser ( void );
 	public :
 		std::string	ReplaceOcurrences(const string& line, const string& s1, const string& s2);
+		void		WriteInFile(std::ifstream& infile, std::ofstream& outfile, std::string& s1, std::string& s2);
 };
 
 #endif
