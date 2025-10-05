@@ -14,6 +14,8 @@
 #include <fstream>
 #include <string>
 
+#include "MySedLoser.hpp"
+
 int	main (int ac, char *av[])
 {
 	std::string	filename = "";
