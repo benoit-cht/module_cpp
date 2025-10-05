@@ -17,13 +17,13 @@
 #include <string>
 
 class Harl{
-	public :
+	private :
 		void	_debug( void );
 		void	_info( void );
 		void	_warning( void );
 		void	_error( void );
-	private :
-		void	complain(std:string level);
+	public :
+		void	complain(std::string level);
 };
 
 #endif

@@ -37,7 +37,7 @@ NAME	= ex05
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp
+SRC	=	main.cpp Harl.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
