@@ -14,8 +14,12 @@
 
 Zombie*	zombieHorde( int N, std::string name )
 {
+	if (N < 1){
+		std::cout << "N mist be >= 1" << std::endl;
+		return (NULL);
+	}
 	Zombie*	horde = new Zombie[N];
 	for(int index = 0; index < N; index++)
-		horde[index].Zombie::setname(name);
+		horde[index].setname(name);
 	return horde ;
 }

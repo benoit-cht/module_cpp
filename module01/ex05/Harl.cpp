@@ -24,6 +24,8 @@ void	Harl::complain(std::string level)
 		if (level == list[index])
 			return ((this->*f[index])());	
 	}
+	std::cout << "[ Probably complaining about insignificant "
+              << "problems ]" << std::endl;
 }
 
 void	Harl::_debug(void) 
