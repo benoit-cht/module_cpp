@@ -34,6 +34,8 @@ Fixed	&Fixed::operator=( const Fixed& other )
 	return ( *this );
 }
 
+/* ************************************************************************** */
+
 int	Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawbits meber fonction called " << std::endl;
@@ -41,11 +43,19 @@ int	Fixed::getRawBits( void ) const
 
 }
 
+void	Fixed::setRawBits( int const raw ) { _rawBits = raw; }
+
+/* ************************************************************************** */
+
 int	Fixed::toInt ( void ) const { return ( _rawBits >> _fractionalBits ); }
 
 float	Fixed::toFloat ( void ) const { return ((float)_rawBits / ( 1 << _fractionalBits)); }
 
-void	Fixed::setRawBits( int const raw ) { _rawBits = raw; }
+/* ************************************************************************** */
+
+
+
+/* ************************************************************************** */
 
 std::ostream	&operator<<( std::ostream &out, const Fixed &fixed )
 {
