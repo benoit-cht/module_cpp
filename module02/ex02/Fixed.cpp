@@ -99,6 +99,19 @@ Fixed	Fixed::operator++(int)
 	return (temp);
 }
 
+Fixed	Fixed::operator--()
+{
+	_rawBits -= 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp(*this);
+	_rawBits -= 1;
+	return (temp);
+}
+
 /* ************************************************************************** */
 //	fonction static min/max
 
