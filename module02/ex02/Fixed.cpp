@@ -120,7 +120,7 @@ Fixed	Fixed::operator*(const Fixed &other) const
 
 Fixed	Fixed::operator/(const Fixed &other) const
 {
-	return (Fixed(this->toFloat() / other.tofloat()));
+	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 /* ************************************************************************** */
@@ -139,7 +139,7 @@ Fixed	Fixed::operator++(int)
 	return (temp);
 }
 
-Fixed	Fixed::operator--()
+Fixed	&Fixed::operator--()
 {
 	_rawBits -= 1;
 	return (*this);
