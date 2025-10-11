@@ -108,6 +108,21 @@ Fixed	Fixed::operator+(const Fixed &other) const
 	return (Fixed(this->toFloat() + other.toFloat()));
 }
 
+Fixed	Fixed::operator-(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed	Fixed::operator*(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() * other.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() / other.tofloat()));
+}
+
 /* ************************************************************************** */
 //	Surchage d'un operateur d'incrementation 
 
