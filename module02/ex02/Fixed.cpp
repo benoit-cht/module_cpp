@@ -69,9 +69,34 @@ float	Fixed::toFloat ( void ) const { return ((float)_rawBits / ( 1 << _fraction
 /* ************************************************************************** */
 //	Surchage d'un operateur de comparaison 
 
+bool	Fixed::operator>(const Fixed &other) const
+{
+	return ( _rawBits > other._rawBits );
+}
+
+bool	Fixed::operator<( const Fixed &other ) const
+{
+	return ( _rawBits < other._rawBits );
+}
+
+bool	Fixed::operator>=( const Fixed &other ) const
+{
+	return ( _rawBits >= other._rawBits );
+}
+
+bool	Fixed::operator<=( const Fixed &other ) const
+{
+	return ( _rawBits <= other._rawBits );
+}
+
 bool	Fixed::operator==( const Fixed &other ) const
 {
 	return ( _rawBits == other._rawBits );
+}
+
+bool	Fixed::operator!=( const Fixed &other) const
+{
+	return ( _rawBits != other._rawBits );
 }
 
 /* ************************************************************************** */
