@@ -10,4 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
+# include <iostream>
+# include <string>
+
+class	ClapTrap
+{
+	private :
+		int			_hitPoint;
+		int			_energiePoint;
+		int			_attackDamage
+		const std::string	_name;
+	
+	public :
+		ClapTrap ( void );
+		ClapTrap (const std::string& name, int hit, int energie, int attack);
+		ClapTrap (const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		~CalpTrap();
+	
+	public :
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+}
+# endif
