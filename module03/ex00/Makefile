@@ -37,7 +37,7 @@ NAME	= ex02
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp Fixed.cpp
+SRC	=	main.cpp ClapTrap.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
