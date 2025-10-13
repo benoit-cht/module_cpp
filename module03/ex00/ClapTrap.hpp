@@ -20,7 +20,7 @@ class	ClapTrap
 {
 	private :
 		unsigned int			_hitPoint;
-		unsigned int			_energiePoint;
+		unsigned int			_energyPoint;
 		unsigned int			_attackDamage
 		const std::string	_name;
 	
@@ -35,4 +35,4 @@ class	ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 }
-# endif
+# endi
