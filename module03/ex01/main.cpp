@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-    ClapTrap claptrap("Robo");
-    claptrap.attack("Enemy");
-    claptrap.takeDamage(5);
-    claptrap.beRepaired(3);
+    ScavTrap scav("Scavvy");
+    scav.attack("Intruder");
+    scav.takeDamage(20);
+    scav.beRepaired(10);
+    scav.guardGate();
     return 0;
 }
-
