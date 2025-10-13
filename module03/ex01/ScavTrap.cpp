@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap (const std::string& name) : ClapTrap(name)
-{
-	_hitPoint = 100;
-	_energypoint = 50;
-	_attackDamage = 20;
+ScavTrap::ScavTrap (const std::string& name) : 
+	ClapTrap(name){
+		_hitPoint = 100;
+		_energyPoint = 50;
+		_attackDamage = 20;
 
-	std::count << "ScavTrap " << _name << " constructed! " << std::endl; 
-}
+		std::cout << "ScavTrap " << _name << " constructed! " << std::endl; 
+	}
 
 ScavTrap::~ScavTrap ()
 {
@@ -30,11 +30,11 @@ ScavTrap::~ScavTrap ()
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (_energyPoint == 0 || _hitPoints == 0)
+	if (_energyPoint == 0 || _hitPoint == 0)
 		std::cout << "ScavTrap " << _name << " can't attack; no energy or hit points left!" << std::endl;
 	else
 	{
-		energyPoint--;
+		_energyPoint--;
 		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 }
