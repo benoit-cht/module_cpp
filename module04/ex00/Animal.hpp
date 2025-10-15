@@ -10,4 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
+# include <iostream>
+# include <string>
+
+class	Animal {
+
+	protected :
+		std::string	_type;
+
+	public :
+		Animal( void );
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal( void );
+	public :
+		std::string	getType( void ) const;
+		std::string	setType( void ) const;
+
+	public :
+		void	makeSound();
+};
+
+#endif
