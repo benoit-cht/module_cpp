@@ -37,7 +37,7 @@ NAME	= FragTrap
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp ClapTrap.cpp FragTrap.cpp
+SRC	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
