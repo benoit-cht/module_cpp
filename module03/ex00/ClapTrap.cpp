@@ -16,12 +16,12 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << " Default constructor called " << std::endl;
+	std::cout << "Default constructor called " << std::endl;
 }
 
 ClapTrap::ClapTrap (const std::string& name) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-	std::cout << " ClapTrap robo constructed! " << std::endl;
+	std::cout << "ClapTrap robo constructed! " << std::endl;
 }
 
 ClapTrap::ClapTrap (const ClapTrap& other) : 
@@ -39,7 +39,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& other)
 		_hitPoint = other._hitPoint;
 		_energyPoint = other._energyPoint;
 		_attackDamage = other._attackDamage;
-		std::cout << " assignement operator called " << std::endl;
+		std::cout << "assignement operator called " << std::endl;
 	}
 	return(*this);
 
@@ -52,11 +52,11 @@ ClapTrap::~ClapTrap() { std::cout << "ClapTrap " << _name << " destroyed!" << st
 void	ClapTrap::attack(const std::string& target)
 {
 	if (_energyPoint == 0 || _hitPoint ==0)	
-		std::cout << " ClapTrap " << _name << " can't attack; no energy or hit points left! " << std::endl;
+		std::cout << "ClapTrap " << _name << " can't attack; no energy or hit points left! " << std::endl;
 	else
 	{
 		_energyPoint--;
-		std::cout << " ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 }
 
