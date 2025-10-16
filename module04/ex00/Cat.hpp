@@ -18,11 +18,11 @@
 class Cat : public Animal
 {
 	public :
-		cat( void );
-		static ~cat( void );
+		Cat( void );
+		virtual ~Cat( void );
 	
 	public :
-		makeSound( void );
+		void	makeSound( void ) const;
 };
 
 

@@ -19,10 +19,10 @@ class Dog : public Animal
 {
 	public :
 		Dog( void );
-		static ~Dog( void );
+		virtual ~Dog( void );
 	
 	public :
-		makeSound( void );
+		void	makeSound( void ) const;
 };
 
 # endif

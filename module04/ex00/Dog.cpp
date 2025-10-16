@@ -19,7 +19,7 @@ Dog::Dog( void ) : _Type("Dog")
 	std::cout << "constructor of Dog called " << std::endl;
 }
 
-static	Dog::~Dog( void )
+virtual	Dog::~Dog( void )
 {
 	std::cout << "Destructor of dog called " << std::endl;
 }

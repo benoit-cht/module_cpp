@@ -19,7 +19,7 @@ Cat::Cat (void) : _Type("Cat")
 	std::cout << "constructeur of cat called " << std::endl;
 }
 
-static Cat::~Cat( void )
+virtual Cat::~Cat( void )
 {
 	std::cout << "Destructeur of cat called " << std::endl;
 }
