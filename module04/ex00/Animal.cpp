@@ -19,7 +19,7 @@ Animal::Animal( void )
 	std::cout << "Default constructor called"<< std::endl; 
 }
 
-static Animal::~Animal( void ) 
+Animal::~Animal( void ) 
 { 
 	std::cout << "Default destructor called"<< std::endl; 
 }
@@ -33,7 +33,7 @@ Animal::Animal( const Animal& other ) : _type(other._type)
 
 Animal&	Animal::operator=(const Animal& other)
 {
-	if (*this != &other)
+	if (this->_type != other._type)
 	{
 		_type = other._type;
 		std::cout << "assignement operator called " << std::endl;
@@ -43,19 +43,20 @@ Animal&	Animal::operator=(const Animal& other)
 
 /* ************************************************************************** */
 
-std::string	getType( void ) const;
+std::string	Animal::getType( void ) const 
 {
 	std::cout << "getType meber fonction called" << std::endl;
+	return (this->_type);
 }
 
-void		setType(std::string type) const;
+void		Animal::setType(std::string type) const
 {
-	return (_type = type);
+	this->_type = type;
 }
 
 /* ************************************************************************** */
 
-void	makeSound( void )
+void	Animal::makeSound( void ) const
 {
-	
+	std::cout << "..." << std::endl;	
 }

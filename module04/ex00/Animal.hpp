@@ -31,7 +31,7 @@ class	Animal {
 		void		setType( std::string type ) const;
 
 	public :
-		void	makeSound();
+		void	makeSound( void ) const;
 };
 
 #endif
