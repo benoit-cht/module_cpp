@@ -14,19 +14,20 @@
 
 /* ************************************************************************** */
 
-Cat::Cat (void) : _Type("Cat")
+Cat::Cat( void ) : Animal()
 {
-	std::cout << "constructeur of cat called " << std::endl;
+	_type = "Cat";
+	std::cout << "constructor of Cat called " << std::endl;
 }
 
-virtual Cat::~Cat( void )
+Cat::~Cat( void )
 {
-	std::cout << "Destructeur of cat called " << std::endl;
+	std::cout << "Destructor of Cat called " << std::endl;
 }
 
 /* ************************************************************************** */
 
-Cat::makesound( void )
+void	Cat::makeSound( void ) const
 {
-	std::cout << " Meooow !" << std::end;
+	std::cout << "Meooow ! " << std::endl;
 }

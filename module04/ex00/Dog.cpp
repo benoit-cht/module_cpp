@@ -14,19 +14,20 @@
 
 /* ************************************************************************** */
 
-Dog::Dog( void ) : _Type("Dog")
+Dog::Dog( void ) : Animal()
 {
+	_type = "Dog";
 	std::cout << "constructor of Dog called " << std::endl;
 }
 
-virtual	Dog::~Dog( void )
+Dog::~Dog( void )
 {
 	std::cout << "Destructor of dog called " << std::endl;
 }
 
 /* ************************************************************************** */
 
-Dog::makeSound( void )
+void	Dog::makeSound( void ) const
 {
 	std::cout << " woooof" << std::endl;
 }
