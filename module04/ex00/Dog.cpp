@@ -10,4 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
 
+/* ************************************************************************** */
+
+Dog::Dog( void ) : _Type("Dog")
+{
+	std::cout << "constructor of Dog called " << std::endl;
+}
+
+static	Dog::~Dog( void )
+{
+	std::cout << "Destructor of dog called " << std::endl;
+}
+
+/* ************************************************************************** */
+
+Dog::makeSound( void )
+{
+	std::cout << " woooof" << std::endl;
+}

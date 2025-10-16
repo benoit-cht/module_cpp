@@ -10,4 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef DOG_HPP
+# define DOG_HPP
 
+#include "Animal.hpp"
+
+class Dog : public Animal
+{
+	public :
+		Dog( void );
+		static ~Dog( void );
+	
+	public :
+		makeSound( void );
+};
+
+# endif
