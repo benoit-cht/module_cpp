@@ -10,4 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cat.hpp"
 
+/* ************************************************************************** */
+
+Cat::Cat (void) : _Type("Cat")
+{
+	std::cout << "constructeur of cat called " << std::endl;
+}
+
+static Cat::~Cat( void )
+{
+	std::cout << "Destructeur of cat called " << std::endl;
+}
+
+/* ************************************************************************** */
+
+Cat::makesound( void )
+{
+	std::cout << " Miaouuu !" << std::end;
+}
