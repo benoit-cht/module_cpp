@@ -37,7 +37,7 @@ NAME	= ClapTrap
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp 
+SRC	=	main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
