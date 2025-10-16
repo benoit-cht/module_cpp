@@ -28,5 +28,5 @@ static Cat::~Cat( void )
 
 Cat::makesound( void )
 {
-	std::cout << " Miaouuu !" << std::end;
+	std::cout << " Meooow !" << std::end;
 }
