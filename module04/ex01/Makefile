@@ -31,13 +31,18 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= ClapTrap
+NAME	= burn
 
 # **************************************************************************** #
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp 
+SRC	=	main.cpp	\
+		Animal.cpp	\
+		Cat.cpp		\
+		Dog.cpp		\
+		#Brain.cpp	\
+
 OBJS	=	$(SRC:.cpp=.o)
 
 %.o: %.cpp
