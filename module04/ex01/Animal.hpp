@@ -20,12 +20,6 @@
 
 class	Animal {
 
-	private :
-		Brain	*brain;
-
-	protected :
-		std::string	_type;
-
 	public :
 		Animal( void );
 		Animal(const Animal& other);
