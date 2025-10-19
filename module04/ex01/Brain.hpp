@@ -17,14 +17,19 @@
 
 class	Brain {
 
-	protected :
-		std::string ideas[101] ;
+	private :
+		std::string _ideas[100] ;
 	
 	public :
 		Brain( void );
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
 		virtual	~Brain( void );
+	
+	public :
+		std::string	getIdeas(unsigned int index) const;
+		void		setIdeas(const std::string str, unsigned int index);
+
 
 };
 
