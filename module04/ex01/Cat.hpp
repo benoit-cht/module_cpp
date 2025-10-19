@@ -17,10 +17,13 @@
 
 class Cat : public Animal
 {
+	private :
+		Brain*	_brain;
 	public :
 		Cat( void );
 		virtual ~Cat( void );
-	
+		Cat(const Cat& other);
+    		Cat& operator=(const Cat& other);
 	public :
 		void	makeSound( void ) const;
 };
