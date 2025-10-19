@@ -22,14 +22,14 @@ Brain::Brain( void )
 
 Brain::~Brain( void )
 {
-	std::cout << "Default Brain constructor called" << std::endl;
+	std::cout << "Default Brain destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
 
 Brain::Brain(const Brain& other)
 {
-	std::cout << "Brain copy called" << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 
 	for (int index = 0; index < 100; index++)
 		this->_ideas[index] = other._ideas[index];
@@ -37,7 +37,7 @@ Brain::Brain(const Brain& other)
 
 Brain&	Brain::operator=(const Brain& other)
 {
-	std::cout << "Operator assigment called" << std::endl;
+	std::cout << "Operator assignation operator called" << std::endl;
 
 	for (int index = 0; index < 100; index++)
 		this->_ideas[index] = other._ideas[index];
@@ -58,7 +58,7 @@ std::string	Brain::getIdeas(unsigned int index) const
 void		Brain::setIdeas(const std::string& str, unsigned int index)
 {
 	if (index >= 100 || str == "\0")
-		std::cerr << "Dont can't change ideas" << std::endl;
+		std::cerr << "Can't change ideas: invalid index or empty string!" << std::endl;
 	else
 		this->_ideas[index] = str;
 }
