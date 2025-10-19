@@ -20,7 +20,7 @@ Brain::Brain( void )
 	std::cout << "Default Brain constructor called " << std::endl;
 }
 
-virtual	Brain::~Brain( void )
+Brain::~Brain( void )
 {
 	std::cout << "Default Brain constructor called" << std::endl;
 }
@@ -31,7 +31,7 @@ Brain::Brain(const Brain& other)
 {
 	std::cout << "Brain copy called" << std::endl;
 
-	for (int index, index < 100, index++)
+	for (int index = 0; index < 100; index++)
 		this->_ideas[index] = other._ideas[index];
 }
 
@@ -39,27 +39,27 @@ Brain&	Brain::operator=(const Brain& other)
 {
 	std::cout << "Operator assigment called" << std::endl;
 
-	for (int index, index < 100, index++)
+	for (int index = 0; index < 100; index++)
 		this->_ideas[index] = other._ideas[index];
 	return (*this);
 }
 
 /* ************************************************************************** */
 
-std::string	getIdeas(unsigned int index) const
+std::string	Brain::getIdeas(unsigned int index) const
 {
 	if ( index >= 100 )
-		std::err << "This ideas is not in the array !" << std::endl;
+		std::cerr << "This ideas is not in the array !" << std::endl;
 	else
-		return (*this->_ideas[index]);
+		return (this->_ideas[index]);
 	return ("\0");
 }		
 
-void		setIdeas(const std::string str, unsigned int index)
+void		Brain::setIdeas(const std::string& str, unsigned int index)
 {
 	if (index >= 100 || str == "\0")
-		std::err << "Dont can't change ideas" << std::endl;
+		std::cerr << "Dont can't change ideas" << std::endl;
 	else
-		*this->_ideas[index] == str;
+		this->_ideas[index] = str;
 }
 /* ************************************************************************** */

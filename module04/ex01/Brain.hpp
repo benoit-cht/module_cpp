@@ -14,6 +14,7 @@
 # define BRAIN_HPP
 
 # include <string>
+# include <iostream>
 
 class	Brain {
 
@@ -28,7 +29,7 @@ class	Brain {
 	
 	public :
 		std::string	getIdeas(unsigned int index) const;
-		void		setIdeas(const std::string str, unsigned int index);
+		void		setIdeas(const std::string& str, unsigned int index);
 
 
 };

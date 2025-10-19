@@ -41,7 +41,7 @@ SRC	=	main.cpp	\
 		Animal.cpp	\
 		Cat.cpp		\
 		Dog.cpp		\
-		#Brain.cpp	\
+		Brain.cpp	\
 
 OBJS	=	$(SRC:.cpp=.o)
 
