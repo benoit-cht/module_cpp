@@ -16,7 +16,12 @@
 # include <iostream>
 # include <string>
 
+# include "Brain.hpp"
+
 class	Animal {
+
+	private :
+		Brain	*brain;
 
 	protected :
 		std::string	_type;
