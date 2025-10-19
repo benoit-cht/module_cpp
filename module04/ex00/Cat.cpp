@@ -27,6 +27,20 @@ Cat::~Cat( void )
 
 /* ************************************************************************** */
 
+Cat::Cat(const Cat& other)
+{
+	std::cout << "cat copy constructor called" << std::endl;
+}
+
+Cat&	Cat::operator=(const Cat& other)
+{
+	if (this != &other)
+		Animal::operator=(other);
+	return (*this);
+}
+
+/* ************************************************************************** */
+
 void	Cat::makeSound( void ) const
 {
 	std::cout << "Meooow ! " << std::endl;
