@@ -15,15 +15,16 @@
 
 int	main ( void )
 {
-	try 
+	try{ 
 		Bureaucrat alice("Alice", 151); // Trop bas
-	catch (const std::exception& e) 
+	}catch (const std::exception& e){ 
 		std::cerr << "Error: " << e.what() << std::endl;
+	}
 
-	try 
+	try {
 		Bureaucrat bob("Bob", 0); // Trop haut
-	catch (const std::exception& e) 
+	} catch (const std::exception& e) { 
 		std::cerr << "Error: " << e.what() << std::endl;
-
+	}
 	return EXIT_SUCCESS;
 }
