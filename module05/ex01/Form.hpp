@@ -13,9 +13,10 @@
 # ifndef FORM_HPP
 # define FORM_HPP
 
-#include <iostream>
-#include <exception>
-#include <string>
+# include <iostream>
+# include <exception>
+# include <string>
+# include "Bureaucrat.hpp"
 
 class Form {
 	
@@ -34,6 +35,9 @@ class Form {
 		
 		const int		getGradeTooSign() const;
 		const int		getGradeTooExecute() const;
+
+	public :
+		void	beSigned(const Bureaucrat& bureaucrat);
 
 	public :
 		class GradeTooHighExeception : public std::exeception{
