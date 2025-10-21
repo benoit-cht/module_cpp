@@ -30,7 +30,7 @@ class Form {
 		void		setName(std::string name);
 
 		bool		getIsSigned() const;
-		bool		setIsSigned();
+		bool		setIsSigned(bool value);
 
 	public :
 		//exception
