@@ -41,6 +41,18 @@ int			Bureaucrat::getGrade() const{ return (_grade); }
 
 /* ************************************************************************** */
 
+void	Bureaucrat::signForm(Form& form) const 
+{
+	try {
+		for.besigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	} catch (const std::exception& exception) {
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << exception.what() << std::endl;
+	}
+}
+
+/* ************************************************************************** */
+
 void	Bureaucrat::incrementGrade()
 {
 	if (_grade <=1)
