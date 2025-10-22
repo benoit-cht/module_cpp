@@ -18,7 +18,7 @@
 class	ScalarConverter {
 	
 	public :
-		static	convert(const std::string literal);
+		static void	convert(const std::string literal);
 
 	public :
 		static bool	isChar(const std::string& literal);
