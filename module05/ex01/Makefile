@@ -37,7 +37,7 @@ NAME	= ex01
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp Bureaucrat.cpp From.cpp \
+SRC	=	main.cpp Bureaucrat.cpp Form.cpp \
 		
 OBJS	=	$(SRC:.cpp=.o)
 

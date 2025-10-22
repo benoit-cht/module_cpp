@@ -16,7 +16,8 @@
 # include <iostream>
 # include <exception>
 # include <string>
-# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 	
@@ -28,10 +29,10 @@ class Form {
 
 	public :
 		const std::string&	getName() const;
-		void			setName(std::string name);
+		void			setName(const std::string& name);
 
 		bool			getIsSigned() const;
-		bool			setIsSigned(bool value);
+		void			setIsSigned(bool value);
 		
 		const int		getGradeTooSign() const;
 		const int		getGradeTooExecute() const;
@@ -40,7 +41,7 @@ class Form {
 		void	beSigned(const Bureaucrat& bureaucrat);
 
 	public :
-		class GradeTooHighExeception : public std::exeception{
+		class GradeTooHighExeception : public std::exception{
 			public :
 				const char* what() const throw();
 		};
@@ -61,4 +62,4 @@ class Form {
 
 std::ostream&	operator<<(std::ostream& os, const Form& form);
 
-# ifndef
+# endif
