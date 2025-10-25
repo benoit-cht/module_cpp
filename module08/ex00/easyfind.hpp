@@ -10,4 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef EASYFIND_HPP
+# define EASYFIND_HPP
+
+# include <algorithm>
+# include <stdexcept>
+
+template<typename T>
+typename	T::iterator easyfind(T& container, int n)
+{
+	typename T::iterator	iterator = std::find(container.begin(), container.end(), n) ;
+
+	if (iterator == container.end())
+		throw std::runtime_error("Value not fond in container") ;
+
+	return ( iterator ) ;
+}
+
+# endif
+
+/* ************************************************************************** */
+/*                                                                            */
+/* ************************************************************************** */
 
