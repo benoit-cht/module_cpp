@@ -10,4 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
+# include <stack>
+# include <vector>
+
+template<typename T>
+class MutantStack: public std::stack<T> {
+
+	public :
+		MutantStack( void );
+		MutantStack(const MutantStack& other);
+		MutantStack&	operator=(const MutantStack& other);
+		virtual	~MutantStack( void );
+
+	public :
+		typedef typename std::vector<T>::iterator iterator;
+		iterator	begin();
+		iterator	end();
+
+};
+
+# include "MutantStack.tpp"
+
+# endif
