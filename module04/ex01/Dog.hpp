@@ -28,6 +28,7 @@ class Dog : public Animal
 		
 	public :
 		void	makeSound( void ) const;
+		Brain*	getBrain() const;
 };
 
 # endif

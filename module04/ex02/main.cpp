@@ -18,12 +18,13 @@ int main()
 	const int arraySize = 4;
 	AAnimal* animals[arraySize];
 
+	//AAnimal animal();
 	for (int i = 0; i < arraySize; i++)
 	{
 		if (i < arraySize / 2) 
 			animals[i] = new Dog(); 
 		else
-            		animals[i] = new Cat();
+            animals[i] = new Cat();
 	}
 
 	for (int i = 0; i < arraySize; i++)

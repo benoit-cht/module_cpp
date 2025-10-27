@@ -37,7 +37,7 @@ int	main()
 	j->makeSound();
 	meta->makeSound();
 
-	Wi->makeSound(); //will output the cat sound!
+	Wi->makeSound(); 
 	Wj->makeSound();
 	Wmeta->makeSound();
 
