@@ -27,7 +27,12 @@ class Intern {
 		virtual ~Intern( void );
 	
 	public :
-		AForm*	makeForm(std::string name, std::string target) const ; 
+		AForm*	makeForm(std::string name, std::string target) const ;
+	
+	public :
+		class	UknownFormException : public std::exception {
+			const char* what() const throw();
+		}; 
 };
 
 # endif
