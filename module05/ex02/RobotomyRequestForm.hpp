@@ -18,7 +18,7 @@
 class RobotomyRequestForm: public AForm {
 
 	public :
-		RobotomyRequestForm( void );
+		RobotomyRequestForm(const std::string& target);
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		virtual ~RobotomyRequestForm( void );

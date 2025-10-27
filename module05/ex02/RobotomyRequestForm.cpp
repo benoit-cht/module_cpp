@@ -10,4 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "RobotomyRequestForm.hpp"
+
+/* ************************************************************************** */
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+	:AForm("RobotomyRequestForm", 72, 45), _Target(target) 
+{
+	// time(0) # include <ctime>
+	// std::srand(std::time(0));
+}
+
+RobotomyRequestForm::~RobotomyRequestForm( void ) {}
+
+/* ************************************************************************** */
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
+	:AForm(other), _Target(other._Target) {}
+
+RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
+{
+	if ( this != &other)
+	{
+		AForm::operator=(other);
+		_Target = other_Target;
+	}
+	return ( *this );
+}
+
+/* ************************************************************************** */
+
+void	RebotomyRequestForm::execute(const Bureaucrat& other) const
+{
+	if (!isSigned())
+		//throw AForm::FormSignedException();
+	if (executor.getGrade() > getGradeTooExcecute())
+		//throw AForm::GradeTooLowException();
+
+	std::cout << "Drilling noises: BZZZ.. " << std::endl;
+
+	if (std::rand() % 2 == 0)
+		std::cout << _Target << "Has been robotomized successfully !" << std::endl;
+	else
+		std::cout << "Robotomy failed for "<< _Target << "." << std::endl;
+}
+/* ************************************************************************** */
 
