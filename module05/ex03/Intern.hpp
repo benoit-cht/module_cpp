@@ -27,7 +27,7 @@ class Intern {
 		virtual ~Intern( void );
 	
 	public :
-		makeForm(std::string name, std::string target) const ; 
+		AForm*	makeForm(std::string name, std::string target) const ; 
 };
 
 # endif
