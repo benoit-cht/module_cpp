@@ -31,13 +31,18 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= 
+NAME	= ex02 
 
 # **************************************************************************** #
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp	\
+SRC	=	main.cpp			\
+		AForm.cpp			\
+		Bureaucrat.cpp			\
+		ShrubberyCreationForm.cpp	\
+		RobotomyRequestForm.cpp 	\
+		PresidentialPardonForm.cpp 	\
 		
 OBJS	=	$(SRC:.cpp=.o)
 
