@@ -1,13 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchallat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 10:56:30 by bchallat          #+#    #+#             */
-/*   Updated: 2025/10/27 10:56:31 by bchallat         ###   ########.fr       */
+/*   Created: 2025/10/20 17:06:52 by bchallat          #+#    #+#             */
+/*   Updated: 2025/10/20 17:06:53 by bchallat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef AFORM_HPP
+# define AFORM_HPP
 
+# include <iostream>
+# include <exception>
+# include <string>
+
+class Bureaucrat;
+
+class AForm {
+	
+	public :
+		AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
+		AForm(const AForm& other);
+		AForm& operator=(const AForm& other);
+		virtual ~AForm();
+
+	public :
+		const std::string&	getName() const;
+		void			setName(const std::string& name);
+
+		bool			getIsSigned() const;
+		void			setIsSigned(bool value);
+		
+		const int		getGradeTooSign() const;
+		const int		getGradeTooExecute() const;
+
+	public :
+		void	beSigned(const Bureaucrat& bureaucrat);
+
+	public :
+		class GradeTooHighExeception : public std::exception{
+			public :
+				const char* what() const throw();
+		};
+
+		class GradeTooLowExeception : public std::exception{
+			public :
+				const char* what() const throw();
+		};
+
+	private :
+		const std::string	_name;
+		const int		_gradeTooSign;
+		const int		_gradeTooExecute;
+	
+	protected :
+		bool		isSigned;
+};
+
+std::ostream&	operator<<(std::ostream& os, const AForm& AForm);
+
+# endif
