@@ -27,22 +27,27 @@ void	ScalarConverter::convert(const std::string literal)
 	if (isChar(literal))
 	{
 		//print la convertion de char
+		convertChar(literal);
 	}
 	else if (isInt(literal))
 	{
 		//print la convertion de int
+		convertInt(literal);
 	}
 	else if (isFloat(literal))
 	{
 		// print la convertion de float
+		convertFloat(literal);
 	}
 	else if (isDouble(literal))
 	{
 		//print la convertion de double 
+		convertDouble(literal);
 	}
 	else
 	{
 		// gestion des cas speciaux (nan, inf, ect.)
+		convertSpecialClase(literal);
 	}
 }
 
