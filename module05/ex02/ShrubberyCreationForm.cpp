@@ -10,4 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "ShrubberyCreationForm.hpp"
+# include <fstream>
 
+/* ************************************************************************** */
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) 
+	: AForm("ShrubberyCreationForm", 145, 137), _Target(target) {}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+/* ************************************************************************** */
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+	: AFrom(other), _Target(other._Target) {}
+
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
+	if ( this != &other)
+	{
+		AForm::operator=(other);
+		_Target = other._Target;
+	}
+	return ( *this );
+}
+
+/* ************************************************************************** */
+
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const 
+{
+	if (!isSigned())
+		//FormNotSignedException; 
+	if (executor.getGrade() > getGradeTooExecute())
+		//GradeTooLowException;
+	
+	std::ofstream file((_target + "_strubbery")c.str());
+	if (!file.is_open())
+	{
+		throw std::routime_error("Faile to create shrubbery file! ");
+	}
+	else 
+	{
+		file	<< "       _-_\n"
+         		<< "    /~~   ~~\\\n"
+			<< " /~~         ~~\\\n"
+			<< "{               }\n"
+			<< " \\  _-     -_  /\n"
+			<< "   ~  \\\\ //  ~\n"
+			<< "_- -   | | _- _\n"
+			<< "  _ -  | |   -_\n"
+			<< "      // \\\\";
+
+		file.close();
+	}
+}	
+
+/* ************************************************************************** */
+/* ************************************************************************** */
