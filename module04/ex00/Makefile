@@ -37,7 +37,8 @@ NAME	= Polymorphisme
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongDog.cpp WrongCat.cpp
+
 
 OBJS	=	$(SRC:.cpp=.o)
 
