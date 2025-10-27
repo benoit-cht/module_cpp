@@ -10,4 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "PresidentialPardonForm.hpp"
+
+/* ************************************************************************** */
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+	:AForm("PresidentialPardonForm", 25, 5), _Target(_Target) {}
+
+PresidentialPardonForm::~PresidentialPardonForm( void ) {}
+
+/* ************************************************************************** */
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+	:AForm(other), _Taget(other._Target) {}
+
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+{
+	if ( this != &other )
+	{
+		AForm::operator=(other);
+		_Target = other._Target;
+	}
+	return ( *this );
+}
+/* ************************************************************************** */
+
+void	PresidentPardonForm::execute(const Buraucrat& executor) const
+{
+	if (!isSigned())
+		//throw AForm::FormNotSigned();
+	if (executor.getGrade() >= getGradeTooExecute())
+		//throw AForm::GradeTooLowException();
+	std::cout << _Target << "Has been pardoned by Zaphod Beeblebrox. " << std::endl;
+}
+
+
+/* ************************************************************************** */
+
 
