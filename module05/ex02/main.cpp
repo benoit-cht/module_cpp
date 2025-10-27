@@ -10,4 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
+int main() {
+    try {
+        Bureaucrat alice("Alice", 1);
+        Bureaucrat bob("Bob", 150);
+
+        ShrubberyCreationForm shrubbery("garden");
+        RobotomyRequestForm robotomy("Bender");
+        PresidentialPardonForm pardon("Marvin");
+
+        alice.signForm(shrubbery);
+        alice.executeForm(shrubbery);
+
+        bob.signForm(robotomy);
+        alice.executeForm(robotomy);
+
+        alice.signForm(pardon);
+        alice.executeForm(pardon);
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return (0) ;
+}
