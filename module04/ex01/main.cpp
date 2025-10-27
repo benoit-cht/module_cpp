@@ -78,5 +78,7 @@ int main() {
     delete dog2;
     delete dog3;
 
+    delete cat1;
+
     return 0;
 }
