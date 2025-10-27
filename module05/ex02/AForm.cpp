@@ -16,7 +16,9 @@
 /* ************************************************************************** */
 
 AForm::AForm(const std::string name, const int gradeTooSign, const int gradeTooExecute)
-	: _name(name), isSigned(false), _gradeTooSign(gradeTooSign), _gradeTooExecute(gradeTooExecute)
+	: _name(name), isSigned(false), 
+	_gradeTooSign(gradeTooSign), 
+	_gradeTooExecute(gradeTooExecute)
 {
 	if ( gradeTooSign < 1 || gradeTooExecute < 1)
 	{
@@ -31,7 +33,10 @@ AForm::AForm(const std::string name, const int gradeTooSign, const int gradeTooE
 AForm::~AForm( void ) {}
 
 AForm::AForm(const AForm& other)
-	: _name(other._name), isSigned(other.isSigned), _gradeTooSign(other._gradeTooSign), _gradeTooExecute(other._gradeTooExecute){}
+	: _name(other._name), 
+	isSigned(other.isSigned), 
+	_gradeTooSign(other._gradeTooSign), 
+	_gradeTooExecute(other._gradeTooExecute){}
 
 AForm&	AForm::operator=(const AForm& other)
 {
@@ -70,6 +75,11 @@ const char*	AForm::GradeTooHighExeception::what() const throw()
 const char*	AForm::GradeTooLowExeception::what() const throw()
 {
 	return ("AForm grade is too low!");
+}
+
+const char*	AForm::FormNotSignedException:: what() const throw()
+{
+	return ("AForm is not signed !");
 }
 
 /* ************************************************************************** */

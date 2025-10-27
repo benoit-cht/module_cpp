@@ -52,6 +52,11 @@ class AForm {
 				const char* what() const throw();
 		};
 
+		class FormNotSignedExeption : public std::exception{
+			public :
+				const char* what() const throw();
+		};
+
 	private :
 		const std::string	_name;
 		const int		_gradeTooSign;
