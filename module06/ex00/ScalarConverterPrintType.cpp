@@ -25,19 +25,19 @@ void	ScalarConverter::printChar(double value)
 		if (isprint(c))
 			std::cout << "char: '" << c << "'" << std::endl;
 		else
-			std::cout << "char: not displayable " << std::endl
+			std::cout << "char: not displayable " << std::endl;
 	}
 }
 
 void	ScalarConverter::printInt(double value)
 {
-	if (value < std::numeric_limit<int>::min() || value > std::numeric_limits<int>::max() \
+	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max() \
 		|| std::isnan(value) || std::isinf(value)){
 		std::cout << "int: impossible " << std::endl;
 	}
 	else
 	{
-		std::cout << "int :" << static_cat<int>(value) << std::endl; 
+		std::cout << "int :" << static_cast<int>(value) << std::endl; 
 	}
 }
 

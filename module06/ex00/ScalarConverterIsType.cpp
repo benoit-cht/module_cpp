@@ -33,7 +33,7 @@ bool	ScalarConverter::isInt(const std::string& literal)
 
 	if (literal[i] == '-' || literal[i] == '+') 
 		i++;
-	if (i == literal.legth())
+	if (i == literal.length())
 		return ( false );
 	while (i < literal.length())
 	{
@@ -45,12 +45,12 @@ bool	ScalarConverter::isInt(const std::string& literal)
 
 }
 
-bool	ScalarConvert::isfloat(const std::string& literal)
+bool	ScalarConverter::isFloat(const std::string& literal)
 {
 	size_t	i = 0;
 	bool	hasDecimal = false;
 
-	if (literal[literal.legth()] != 'f')
+	if (literal[literal.length()] != 'f')
 		return ( false );
 	if (literal[i] == '-' || literal[i] == '+')
 		i++;
@@ -67,7 +67,7 @@ bool	ScalarConvert::isfloat(const std::string& literal)
 	return ( hasDecimal );
 }
 
-bool	ScalarConvert::isDouble(const std::string& literal)
+bool	ScalarConverter::isDouble(const std::string& literal)
 {
 	size_t	i = 0;
 	bool	hasDecimal = false;

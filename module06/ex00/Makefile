@@ -37,8 +37,10 @@ NAME	= ex00
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp	\
-		ScalarConverter.cpp	\
+SRC	=	main.cpp						\
+		ScalarConverter.cpp				\
+		ScalarConverterPrintType.cpp	\
+		ScalarConverterIsType.cpp		\
 		
 OBJS	=	$(SRC:.cpp=.o)
 

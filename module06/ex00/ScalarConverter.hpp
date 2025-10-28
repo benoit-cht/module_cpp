@@ -13,7 +13,13 @@
 # ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
-# include <string>
+# include <cctype>
+# include <cstdlib>
+# include <iomanip>
+# include <iostream>
+# include <sstream>
+# include <cmath>
+# include <limits>
 
 class	ScalarConverter {
 	
@@ -33,8 +39,8 @@ class	ScalarConverter {
 
 	private :
 		ScalarConverter ( void );
-		ScalarConverter (const ScalarConvert& other);
-		ScalerConverter& operator=(const ScalarConvert& other);
+		ScalarConverter (const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
 };
 
 # endif

@@ -16,7 +16,7 @@
 
 static void	convertChar(const std::string& literal);
 static void	convertionInt(const std::string& literal);
-static void	convertionFoat(const std::string& literal);
+static void	convertionFloat(const std::string& literal);
 static void	convertionDouble(const std::string& literal);
 static void	convertSpecialCase(const std::string& literal);
 
@@ -32,22 +32,22 @@ void	ScalarConverter::convert(const std::string literal)
 	else if (isInt(literal))
 	{
 		//print la convertion de int
-		convertInt(literal);
+		convertionInt(literal);
 	}
 	else if (isFloat(literal))
 	{
 		// print la convertion de float
-		convertFloat(literal);
+		convertionFloat(literal);
 	}
 	else if (isDouble(literal))
 	{
 		//print la convertion de double 
-		convertDouble(literal);
+		convertionDouble(literal);
 	}
 	else
 	{
 		// gestion des cas speciaux (nan, inf, ect.)
-		convertSpecialClase(literal);
+		convertSpecialCase(literal);
 	}
 }
 
@@ -56,45 +56,45 @@ void	ScalarConverter::convert(const std::string literal)
 static void	convertChar(const std::string& literal)
 {
 	char c = literal[1];
-	printChar(static_cast<double>(c));
-	printInt(static_cast<double>(c));
-	printFloat(static_cast<float>(c));
-	printFloat(static_cast<double>(c));
+	ScalarConverter::printChar(static_cast<double>(c));
+	ScalarConverter::printInt(static_cast<double>(c));
+	ScalarConverter::printFloat(static_cast<float>(c));
+	ScalarConverter::printDouble(static_cast<double>(c));
 }
 
 static void	convertionInt(const std::string& literal)
 {
 	try{
 		long intValue = std::stol(literal);
-		if (intValue < std::numeric_limit<int>::min() || intValue > std::numeric_limit<int>::max())
+		if (intValue < std::numeric_limits<int>::min() || intValue > std::numeric_limits<int>::max())
 		{
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
 		}
 		else
 		{
-			printChar(static_cast<double>(intValue));
-			printInt(static_cast<double>(intValue))
+			ScalarConverter::printChar(static_cast<double>(intValue));
+			ScalarConverter::printInt(static_cast<double>(intValue));
 		}
-		printFloat(static_cast<float>(inValue));
-		printDouble(static_cast<double>(intValue));
+		ScalarConverter::printFloat(static_cast<float>(intValue));
+		ScalarConverter::printDouble(static_cast<double>(intValue));
 	
 	}catch (...) {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		printFloat(0.0f);
-		printDouble(0.0);
+		ScalarConverter::printFloat(0.0f);
+		ScalarConverter::printDouble(0.0);
 	}
 }
 
-static void	convertionFoat(const std::string& literal)
+static void	convertionFloat(const std::string& literal)
 {
 	try{
 		float floatValue = std::stof(literal);
-		printChar(static_cast<double>(floatValue));
-		printInt(static_cast<double>(floatValue));
-		printFloat(floatValue);
-		printDouble(static_cast<double>(floatValue));
+		ScalarConverter::printChar(static_cast<double>(floatValue));
+		ScalarConverter::printInt(static_cast<double>(floatValue));
+		ScalarConverter::printFloat(floatValue);
+		ScalarConverter::printDouble(static_cast<double>(floatValue));
 	}catch (...) {
 		std::cout << "char  : imposible " << std::endl;
 		std::cout << "int   : imposible " << std::endl;
@@ -107,10 +107,10 @@ static void	convertionDouble(const std::string& literal)
 {
 	try{
 		double doubleValue = std::stod(literal);
-		printChar(doubleValue);
-		printInt(doubleValue);
-		printFloat(static_cast<float>(doubleValue));
-		printDouble(doubleValue);
+		ScalarConverter::printChar(doubleValue);
+		ScalarConverter::printInt(doubleValue);
+		ScalarConverter::printFloat(static_cast<float>(doubleValue));
+		ScalarConverter::printDouble(doubleValue);
 	}catch (...) {
 		std::cout << "char  : imposible " << std::endl;
 		std::cout << "int   : imposible " << std::endl;
