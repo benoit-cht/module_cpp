@@ -10,32 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 int main() {
+    Intern intern;
+    AForm* form;
+
     try {
+        // Test avec un formulaire valide
+        form = intern.makeForm("robotomy request", "Bender");
         Bureaucrat alice("Alice", 1);
-        Bureaucrat bob("Bob", 150);
+        alice.signForm(*form);
+        alice.executeForm(*form);
+        delete form; // Libère la mémoire
 
-        ShrubberyCreationForm shrubbery("garden");
-        RobotomyRequestForm robotomy("Bender");
-        PresidentialPardonForm pardon("Marvin");
-
-        alice.signForm(shrubbery);
-        alice.executeForm(shrubbery);
-
-        bob.signForm(robotomy);
-        alice.executeForm(robotomy);
-
-        alice.signForm(pardon);
-        alice.executeForm(pardon);
+        // Test avec un formulaire invalide
+        form = intern.makeForm("unknown form", "Target");
     }
     catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
-    return (0) ;
+    return 0;
 }

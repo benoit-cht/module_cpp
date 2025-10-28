@@ -43,7 +43,7 @@ const char* Intern::UknownFormException::what() const throw() {
 
 /* ************************************************************************** */
 
-AForm*	makeForm(std::string name, std::string target)
+AForm*	Intern::makeForm(std::string name, std::string target)
 {
 	typedef AForm* (*FormCreator)(const std::string&);
 
