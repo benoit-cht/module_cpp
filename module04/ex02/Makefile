@@ -31,7 +31,7 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= Abstraite
+NAME	= ex02
 
 # **************************************************************************** #
 #					SOURCES				       #

@@ -31,7 +31,7 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= ScavTrap
+NAME	= ex01
 
 # **************************************************************************** #
 #					SOURCES				       #

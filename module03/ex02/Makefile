@@ -31,7 +31,7 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= FragTrap
+NAME	= ex02
 
 # **************************************************************************** #
 #					SOURCES				       #

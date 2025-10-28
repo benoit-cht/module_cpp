@@ -31,7 +31,7 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= Polymorphisme
+NAME	= ex00
 
 # **************************************************************************** #
 #					SOURCES				       #
