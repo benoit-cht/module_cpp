@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 int main() {
@@ -27,6 +28,7 @@ int main() {
 
         // Test avec un formulaire invalide
         form = intern.makeForm("unknown form", "Target");
+         delete form; // Libère la mémoire
     }
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
