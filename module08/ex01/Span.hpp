@@ -48,4 +48,6 @@ class Span {
 		std::vector<int>	_Number;
 };
 
+//#include "Span.cpp"
+
 # endif
