@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 # include "Intern.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-static AFrom*	createShrubbery(const std::string& target);
-static AFrom*	createRobotomy(const std::string& target);
+static AForm*	createShrubbery(const std::string& target);
+static AForm*	createRobotomy(const std::string& target);
 static AForm*	createPresidential(const std::string& target);
 
 /* ************************************************************************** */
@@ -40,44 +43,44 @@ const char* Intern::UknownFormException::what() const throw() {
 
 /* ************************************************************************** */
 
-AForm*	makeForm(std::string name, std::string target) const 
+AForm*	makeForm(std::string name, std::string target)
 {
-	typedef AFrom* (*FromCreator)(const std::string&);
+	typedef AForm* (*FormCreator)(const std::string&);
 
 	static const struct
 	{
 		const char*	name;
-		FromCreator	creator;
+		FormCreator	creator;
 	}
 
 	formTypes[] = {
 		
-		{"shrubbery creation", &createShrubbery}
-		{"robotomy request", &createRobotomy}
-		{"presidential pardon", &createPresidential}
+		{"shrubbery creation", &createShrubbery},
+		{"robotomy request", &createRobotomy},
+		{"presidential pardon", &createPresidential},
 		{NULL, NULL}
-	}
+	};
 
-	for (int i = 0; formtype[i].name != NULL ; i++)
+	for (int i = 0; formTypes[i].name != NULL ; i++)
 	{
-		if (name == formeTypes[i].name)
+		if (name == formTypes[i].name)
 		{
 			std::cout << "Intern create: " << name << std::endl;
 			return (formTypes[i].creator(target)) ;
 		}
 	}
 
-	throw UknownFormException();
+	throw Intern::UknownFormException();
 }
 
 /* ************************************************************************** */
 
-static AFrom*	createShrubbery(const std::string& target)
+static AForm*	createShrubbery(const std::string& target)
 {
 	return ( new ShrubberyCreationForm(target) ) ;
 }
 
-static AFrom*	createRobotomy(const std::string& target)
+static AForm*	createRobotomy(const std::string& target)
 {
 	return ( new RobotomyRequestForm(target) ) ;
 }
