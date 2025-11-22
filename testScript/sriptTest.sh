@@ -4,19 +4,23 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
 NC='\033[0m' # No Color
 
 # Fonction pour compiler et tester un exercice
 test_exercice() {
   local ex_dir=$1
   local binary_name=$ex_dir # Le binaire a le même nom que le dossier (ex00, ex01, etc.)
-  echo -e "${YELLOW}|--Compilation de l'exercice $ex_dir ${NC}"
+
+  echo -e -n "${BLUE}[   $ex_dir   ] ${NC}"
   make -C "$ex_dir" >/tmp/make_output.txt 2>&1
+
   if [ $? -eq 0 ]; then
-    echo -e "${GREEN}| |-Compilation $ex_dir[OK: ✅] ${NC}"
+    echo -e -n "${GREEN}    [   OK: ✅  ] ${NC}"
   else
-    echo -e "${RED}Échec de la compilation pour $ex_dir${NC}"
-    cat /tmp/make_output.txt
+    echo -e -n "${RED}    [   KO: ❌  ] ${NC}"
+    echo -e -n "${RED}    [ no exe ]${NC}"
+    #cat /tmp/make_output.txt
     return 1
   fi
 
@@ -36,9 +40,9 @@ test_exercice() {
     fi
   else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-      echo -e "${YELLOW}[!] MacOS No valgrind${NC}"
+      echo -e -n "${YELLOW}    [!:Mac os]${NC}"
     else
-      echo -e "${YELLOW}[!] OS type dont Know ${NC} "
+      echo -e -n "${YELLOW}([!] OS type dont Know) ${NC} "
     fi
   fi
 }
@@ -48,9 +52,9 @@ for ex in ex??; do
   if [ -d "$ex" ]; then
     test_exercice "$ex"
     # Nettoyage individuel pour chaque exercice
-    echo -e "${YELLOW}|-Nettoyage de $ex ${NC}"
+    echo -e -n "${BLUE}      ${NC}"
     make fclean -C "$ex" >/dev/null 2>&1
-    echo -e "${GREEN}|--Nettoyage terminé pour $ex${NC}"
+    echo -e "${GREEN}DONE ${BLUE}|${NC}"
   fi
 done
 

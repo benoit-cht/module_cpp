@@ -15,7 +15,7 @@ echo -e "${BLUE}\n ******  *******  *******        ****     ****               *
   //////  //       //             //         //  //////   //////  ////// ///  ////// ${NC}"
 
 for i in {1..8}; do
-  echo -e "${BLUE}\n[ Module0$i ]${NC}\n| "
+  echo -e "${BLUE}\n[ Module0$i ]_____[compilation]_____[Valgrind]_____[clean]${NC}"
 
   # Vérifie que le répertoire existe avant de s'y déplacer
   if [ -d "./module0$i" ]; then
