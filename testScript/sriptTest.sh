@@ -27,10 +27,10 @@ test_exercice() {
   # execute valgrind uniquement sur les os Linux
   if [[ "$OSTYPE" == "linux"* ]]; then
     if [ -f "$ex_dir/$binary_name" ]; then # Vérifie si le binaire existe
-      echo -e "${YELLOW}|--Exécution de valgrind pour $binary_name ${NC}"
+      #echo -e "${YELLOW}|--Exécution de valgrind pour $binary_name ${NC}"
       valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes "$ex_dir/$binary_name" >/tmp/valgrind_output.txt 2>&1
       if grep -q "All heap blocks were freed" /tmp/valgrind_output.txt; then
-        echo -e "${GREEN}| |-Aucune fuite mémoire détectée pour $binary_name [OK: ✅] ${NC}"
+        echo -e -n "${GREEN}    [ OK: ✅ ]${NC}"
       else
         echo -e "${RED}Fuites mémoire détectées pour $binary_name :${NC}"
         cat /tmp/valgrind_output.txt
