@@ -14,15 +14,21 @@ echo -e "${BLUE}\n ******  *******  *******        ****     ****               *
  //****** /**      /**            /**        /**//****** //******//****** ***//******
   //////  //       //             //         //  //////   //////  ////// ///  ////// ${NC}"
 
-for i in {1..8}; do
+for i in {0..8}; do
   echo -e "${BLUE}\n[ Module0$i ]_____[compilation]_____[Valgrind]_____[clean]${NC}"
 
-  # Vérifie que le répertoire existe avant de s'y déplacer
-  if [ -d "./module0$i" ]; then
-    (cd "./module0$i" && ../testScript/sriptTest.sh) || {
+  if [[ "$i" -eq 0 ]]; then
+    (cd "./module0$i" && ../testScript/unitScript/unitModule00.sh) || {
       echo -e "\033[0;31mErreur : Impossible d'exécuter le test dans module0$i\033[0m"
     }
+  # Vérifie que le répertoire existe avant de s'y déplacer
   else
-    echo -e "\033[0;31mErreur : Le répertoire module0$i n'existe pas\033[0m"
+    if [ -d "./module0$i" ]; then
+      (cd "./module0$i" && ../testScript/sriptTest.sh) || {
+        echo -e "\033[0;31mErreur : Impossible d'exécuter le test dans module0$i\033[0m"
+      }
+    else
+      echo -e "\033[0;31mErreur : Le répertoire module0$i n'existe pas\033[0m"
+    fi
   fi
 done
