@@ -24,7 +24,7 @@ CCFLAG = clang++ -g3 -Wall -Wextra -Werror -std=c++98
 #CCFLAG = cc -g -Wall -Wextra -Werror -fsanitize=address
 RMF = rm -rf
 
-NAME = 00 
+NAME = ex00 
 #=======================================================================#
 #				sources					#
 #=======================================================================#
