@@ -63,6 +63,7 @@ $(NAME): $(OBJS)
 clean:
 	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete file obj $(RESET)\n" 
 	@$(RMF) $(OBJDIR) $(OBJS)
+	@$(RMF) garden_strubbery
 
 fclean:
 	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj $(RESET)\n"
