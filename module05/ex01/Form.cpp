@@ -16,7 +16,7 @@
 /* ************************************************************************** */
 
 Form::Form(const std::string name, const int gradeTooSign, const int gradeTooExecute)
-	: _name(name), isSigned(false), _gradeTooSign(gradeTooSign), _gradeTooExecute(gradeTooExecute)
+	: _name(name), _isSigned(false), _gradeTooSign(gradeTooSign), _gradeTooExecute(gradeTooExecute)
 {
 	if ( gradeTooSign < 1 || gradeTooExecute < 1)
 	{
@@ -31,22 +31,22 @@ Form::Form(const std::string name, const int gradeTooSign, const int gradeTooExe
 Form::~Form( void ) {}
 
 Form::Form(const Form& other)
-	: _name(other._name), isSigned(other.isSigned), _gradeTooSign(other._gradeTooSign), _gradeTooExecute(other._gradeTooExecute){}
+	: _name(other._name), _isSigned(other._isSigned), _gradeTooSign(other._gradeTooSign), _gradeTooExecute(other._gradeTooExecute){}
 
 Form&	Form::operator=(const Form& other)
 {
 	if ( this != &other )
-		isSigned = other.isSigned ;
+		_isSigned = other._isSigned ;
 	return ( *this );
 }
 
 /* ************************************************************************** */
 
 const std::string&	Form::getName() const { return (_name); }
-bool			Form::getIsSigned() const { return (isSigned); }
+bool			Form::getIsSigned() const { return (_isSigned); }
 
 // void			Form::setName(const std::string& name) { _name = name; }
-void			Form::setIsSigned(bool value) { isSigned = value; }
+void			Form::setIsSigned(bool value) { _isSigned = value; }
 
 const int		Form::getGradeTooSign() const {return (_gradeTooSign); }
 const int		Form::getGradeTooExecute() const { return (_gradeTooExecute); }
@@ -57,7 +57,7 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeTooSign)
 		throw Form::GradeTooLowExeception();
-	isSigned = true;
+	_isSigned = true;
 }
 
 /* ************************************************************************** */

@@ -52,12 +52,11 @@ class Form {
 		};
 
 	private :
-		const std::string	_name;
-		const int		_gradeTooSign;
-		const int		_gradeTooExecute;
+		const std::string _name;
+		bool		          _isSigned;
+		const int		      _gradeTooSign;
+		const int		      _gradeTooExecute;
 	
-	protected :
-		bool		isSigned;
 };
 
 std::ostream&	operator<<(std::ostream& os, const Form& form);
