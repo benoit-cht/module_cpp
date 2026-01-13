@@ -43,17 +43,17 @@ class AForm {
 		virtual void	execute(const Bureaucrat& executor) const = 0;
 
 	public :
-		class GradeTooHighExeception : public std::exception{
+		class GradeTooHighException : public std::exception{
 			public :
 				const char* what() const throw();
 		};
 
-		class GradeTooLowExeception : public std::exception{
+		class GradeTooLowException : public std::exception{
 			public :
 				const char* what() const throw();
 		};
 
-		class FormNotSignedExeption : public std::exception{
+		class FormNotSignedException : public std::exception{
 			public :
 				const char* what() const throw();
 		};
