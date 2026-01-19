@@ -74,15 +74,18 @@ bool	ScalarConverter::isDouble(const std::string& literal)
 
 	if (literal[i] == '-' || literal[i] == '+')
 		i++;
-	while (i < literal.length())
+	while (i < literal.length() - 1)
 	{
-		if ((hasDecimal && literal[i] == '.') || !isdigit(literal[i]))
+		if ((hasDecimal && literal[i] == '.') || (!isdigit(literal[i]) && literal[i] != '.'))
 			return ( false );
 		else if (!hasDecimal && literal[i] == '.')
+    {
 			hasDecimal = true ;
-		i++;
+      std::cout << "test" << std::endl;
+    }
+    i++;
 	}
-	return (hasDecimal);
+	return ( hasDecimal );
 }
 
 /* ************************************************************************** */
