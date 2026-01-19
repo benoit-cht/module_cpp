@@ -50,7 +50,7 @@ bool	ScalarConverter::isFloat(const std::string& literal)
 	size_t	i = 0;
 	bool	hasDecimal = false;
 
-	if (literal[literal.length()] != 'f')
+	if (literal[literal.length() - 1] != 'f')
 		return ( false );
 	if (literal[i] == '-' || literal[i] == '+')
 		i++;
