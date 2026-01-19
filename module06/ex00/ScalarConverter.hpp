@@ -39,6 +39,7 @@ class	ScalarConverter {
 
 	private :
 		ScalarConverter ( void );
+		virtual ~ScalarConverter ( void );
 		ScalarConverter (const ScalarConverter& other);
 		ScalarConverter& operator=(const ScalarConverter& other);
 };
