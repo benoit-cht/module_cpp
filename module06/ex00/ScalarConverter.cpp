@@ -65,11 +65,11 @@ static void	convertChar(const std::string& literal)
 static void	convertionInt(const std::string& literal)
 {
 	try{
-		long intValue = std::stol(literal);
+		long intValue = std::stolt(literal);
 		if (intValue < std::numeric_limits<int>::min() || intValue > std::numeric_limits<int>::max())
 		{
 			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
+			std::cout << "int : impossible" << std::endl;
 		}
 		else
 		{
@@ -81,7 +81,7 @@ static void	convertionInt(const std::string& literal)
 	
 	}catch (...) {
 		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "int :  impossible" << std::endl;
 		ScalarConverter::printFloat(0.0f);
 		ScalarConverter::printDouble(0.0);
 	}
@@ -96,8 +96,8 @@ static void	convertionFloat(const std::string& literal)
 		ScalarConverter::printFloat(floatValue);
 		ScalarConverter::printDouble(static_cast<double>(floatValue));
 	}catch (...) {
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
 		std::cout << "float : nanf "	  << std::endl;
 		std::cout << "double: nan "	  << std::endl;
 	}
@@ -112,8 +112,8 @@ static void	convertionDouble(const std::string& literal)
 		ScalarConverter::printFloat(static_cast<float>(doubleValue));
 		ScalarConverter::printDouble(doubleValue);
 	}catch (...) {
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
 		std::cout << "float : nanf "	  << std::endl;
 		std::cout << "double: nan "	  << std::endl;
 	}
@@ -123,31 +123,31 @@ static void	convertSpecialCase(const std::string& literal)
 {
 	if (literal == "nan" || literal == "nanf")
 	{
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
 		std::cout << "float : nanf "	  << std::endl;
 		std::cout << "double: nan "	  << std::endl;
 	}
 	else if (literal == "+inf" || literal == "+inff")
 	{
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
 		std::cout << "float : +inf "	  << std::endl;
 		std::cout << "double: +inff "	  << std::endl;
 	}
 	else if (literal == "-inf" || literal == "-inff")
 	{
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
 		std::cout << "float : -inf "	  << std::endl;
 		std::cout << "double: -inff "	  << std::endl;
 	}
 	else
 	{
-		std::cout << "char  : imposible " << std::endl;
-		std::cout << "int   : imposible " << std::endl;
-		std::cout << "float : imposible " << std::endl;
-		std::cout << "double: imposible " << std::endl;
+		std::cout << "char  : impossible " << std::endl;
+		std::cout << "int   : impossible " << std::endl;
+		std::cout << "float : impossible " << std::endl;
+		std::cout << "double: impossible " << std::endl;
 	}
 }
 
