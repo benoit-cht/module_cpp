@@ -14,22 +14,18 @@
 #include <iomanip>
 # include "ScalarConverter.hpp"
 
-int main(int ac, char *av[]) {
-    float f = 42.0f;
-    double d = 42.0;
-
+int main(int ac, char *av[])
+{    
     if (ac == 2)
     {
       ScalarConverter::convert(av[1]);
+      return ( EXIT_SUCCESS );
     }
     else
     {
-      // Affichage avec 1 chiffre après la virgule
-      std::cout << std::fixed << std::setprecision(1);
-      std::cout << "float: " << f << "f" << std::endl;  // Affiche "42.0f"
-      std::cout << "double: " << d << std::endl;         // Affiche "42.0"
+      std::cerr << "Error : Number of incorrect arguments " << std::endl;
+      return ( EXIT_FAILURE );
     }
-    return 0;
 }
 
 /* ************************************************************************** */
