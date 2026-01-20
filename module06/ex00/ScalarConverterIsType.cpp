@@ -81,7 +81,6 @@ bool	ScalarConverter::isDouble(const std::string& literal)
 		else if (!hasDecimal && literal[i] == '.')
     {
 			hasDecimal = true ;
-      std::cout << "test" << std::endl;
     }
     i++;
 	}
