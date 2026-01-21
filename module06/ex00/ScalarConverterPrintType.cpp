@@ -17,7 +17,7 @@ void	ScalarConverter::printChar(double value)
 {
 	if (value < 0 || value > 127 || std::isnan(value) || std::isinf(value))
 	{
-		std::cout << "char: imposible" << std::endl;
+		std::cout << "char: impossible" << std::endl;
 	}
 	else
 	{
