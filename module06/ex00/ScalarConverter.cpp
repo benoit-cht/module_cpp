@@ -79,7 +79,12 @@ static void	convertionInt(const std::string& literal)
 		ScalarConverter::printFloat(static_cast<float>(intValue));
 		ScalarConverter::printDouble(static_cast<double>(intValue));
 	
-	}catch (...) {
+  }catch  (const std::out_of_range& e) {
+    std::cout << "char  : impossible" << std::endl;
+		std::cout << "int   : impossible" << std::endl;
+		std::cout << "float : nanf "	  << std::endl;
+		std::cout << "double: nan "	  << std::endl;
+  }catch (...) {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int :  impossible" << std::endl;
 		ScalarConverter::printFloat(0.0f);
