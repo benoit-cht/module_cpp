@@ -65,7 +65,7 @@ static void	convertChar(const std::string& literal)
 static void	convertionInt(const std::string& literal)
 {
 	try{
-		long intValue = std::stolt(literal);
+		long intValue = std::stol(literal);
 		if (intValue < std::numeric_limits<int>::min() || intValue > std::numeric_limits<int>::max())
 		{
 			std::cout << "char: impossible" << std::endl;
