@@ -55,7 +55,7 @@ OBJS	=	$(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex02 --\n $(RESET)" 
+	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex00 --\n $(RESET)" 
 	@$(CCFLAG) -g3 $(OBJS) -o $(NAME)
 
 clean:
