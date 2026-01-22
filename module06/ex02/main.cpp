@@ -63,16 +63,13 @@ void identify(Base& p) {
     
 
 
-int main() 
+int main( void ) 
 {
-  for (int i=0; i <= 5; i++){
-    Base* base = generate();
+  Base* base = generate();
 
-    identify(base);    // Affiche "A", "B", ou "C" aléatoirement
-    identify(*base);   // Même résultat, mais avec une référence
+  identify(base);    // Affiche "A", "B", ou "C" aléatoirement
+  identify(*base);   // Même résultat, mais avec une référence
 
-    delete base;       // Libère la mémoire
-    std::cout << "---------------------" << std::endl;
-  }
+  delete base;       // Libère la mémoire
 }
 
