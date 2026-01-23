@@ -15,8 +15,7 @@
 
 # include <stdexcept>
 
-template<typename T>
-class Array {
+template<typename T> class Array {
 	
 	public :
 		Array( void ) ;

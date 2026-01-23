@@ -14,22 +14,17 @@
 
 /* ************************************************************************** */
 
-template <typename T>
-Array<T>::Array( void ) : _array(nullptr), _size(0) {}
+template <typename T> Array<T>::Array( void ) : _array(nullptr), _size(0) {}
 
-template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
+template <typename T> Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
 
-template <typename T>
-Array<T>::~Array( void ) { delete[] _array ;}
+template <typename T> Array<T>::~Array( void ) { delete[] _array ;}
 
 /* ************************************************************************** */
 
-template <typename T>
-Array<T>::Array(Array const &other) : _array(nullptr), _size(0) { *this = other; }
+template <typename T> Array<T>::Array(Array const &other) : _array(nullptr), _size(0) { *this = other; }
 
-template <typename T>
-Array<T>	&Array<T>::operator=(Array const &other) 
+template <typename T> Array<T>	&Array<T>::operator=(Array const &other) 
 {
 	if (this != &other)
 	{
@@ -47,13 +42,11 @@ Array<T>	&Array<T>::operator=(Array const &other)
 
 /* ************************************************************************** */
 
-template <typename T>
-unsigned int	Array<T>::getSize( void ) { return (_size) ;}
+template <typename T> unsigned int	Array<T>::getSize( void ) { return (_size) ;}
 
 /* ************************************************************************** */
 
-template<typename T>
-T		&Array<T>::operator[](unsigned int index) 
+template<typename T> T		&Array<T>::operator[](unsigned int index) 
 {
 	if (index >= _size)
 		throw std::out_of_range("Index out of bounds") ;
@@ -61,8 +54,7 @@ T		&Array<T>::operator[](unsigned int index)
 	return (_array[index]) ;
 }
 
-template<typename T>
-T const		&Array<T>::operator[](unsigned int index) const 
+template<typename T> T const		&Array<T>::operator[](unsigned int index) const 
 {
 	if (index >= _size)
 		throw std::out_of_range("Index out of bounds") ;
@@ -71,5 +63,5 @@ T const		&Array<T>::operator[](unsigned int index) const
 }
 
 /* ************************************************************************** */
-
+/*                                                                            */
 /* ************************************************************************** */
