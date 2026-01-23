@@ -6,7 +6,7 @@
 #    By: bchallat <bchallat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 09:18:13 by bchallat          #+#    #+#              #
-#    Updated: 2025/03/12 13:32:00 by bchallat         ###   ########.fr        #
+#    Updated: 2026/01/23 15:10:11 by ton_utilisate    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ OBJS	=	$(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex02 --\n $(RESET)" 
+	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex00 --\n $(RESET)" 
 	@$(CCFLAG) -g3 $(OBJS) -o $(NAME)
 
 clean:
