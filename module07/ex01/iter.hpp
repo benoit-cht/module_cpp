@@ -13,15 +13,13 @@
 # ifndef ITER_HPP
 # define ITER_HPP
 
-template<typename T>
-void	iter(T *array, size_t length, void (*func)(T const &))
+template<typename T> void	iter(T *array, const size_t length, void (*func)(T const &))
 {
 	for (size_t ind = 0; ind < length; ind++)
 		func(array[ind]);
 }
 
-template<typename T>
-void	iter(T *array, const size_t length, void (*func)(T &))
+template<typename T> void	iter(T *array, const size_t length, void (*func)(T &))
 {
 	for (size_t ind = 0; ind < length ; ind++)
 		func(array[ind]);
