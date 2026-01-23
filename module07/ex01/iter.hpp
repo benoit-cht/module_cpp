@@ -21,10 +21,14 @@ void	iter(T *array, size_t length, void (*func)(T const &))
 }
 
 template<typename T>
-void	iter(T *array, size_t length, void (*func)(T &))
+void	iter(T *array, const size_t length, void (*func)(T &))
 {
 	for (size_t ind = 0; ind < length ; ind++)
 		func(array[ind]);
 }
 
 # endif
+
+/* ************************************************************************** */
+/*                                                                            */
+/* ************************************************************************** */

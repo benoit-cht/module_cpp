@@ -25,16 +25,22 @@ void	incrementElement(T &element)
 	element += 1;
 }
 
-int	main() 
+int main( void )
 {
 	int	tab[] = {1,2,3};
 
 	std::cout << "Avant incrementation : ";
-	::iter(tab, 3, printElement<int>);
+	::iter(tab, 3, printElement<int>) ;
 
 	std::cout << "\n -- incrementation -- \n";
-	::iter(tab, 3, incrementElement<int>);
+	::iter(tab, 3, incrementElement<int>) ;
 
 	std::cout << "Apres incrementatition :";
-	::iter(tab, 3, printElement<int>);
+	::iter(tab, 3, printElement<int>) ;
+  std::cout << std::endl ;
 }
+
+/* ************************************************************************** */
+/*                                                                            */
+/* ************************************************************************** */
+
