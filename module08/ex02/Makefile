@@ -59,7 +59,7 @@ clean:
 	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete file obj $(RESET)\n" 
 	@$(RMF) $(OBJDIR) $(OBJS)
 
-fclean:
+fclean: clean
 	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj $(RESET)\n"
 	@$(RMF) $(OBJDIR) $(OBJS) $(NAME)
 
