@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 template<typename T>
-MutantStack<T>::MutantStack( void ) : std::vector<T>() {}
+MutantStack<T>::MutantStack( void ) : std::stack<T>() {}
 
 template<typename T>
 MutantStack<T>::~MutantStack( void ) {}
@@ -34,11 +34,11 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T>& other)
 template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin() 
 { 
-	return ( std::vector<T>::c.begin() ) ;
+	return ( std::stack<T>::c.begin() ) ;
 }
 
 template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end()
 {
-	return ( std::vector<T>::c.end() ) ; 
+	return ( std::stack<T>::c.end() ) ; 
 }
