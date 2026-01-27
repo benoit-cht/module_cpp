@@ -26,7 +26,7 @@ class MutantStack: public std::stack<T> {
 		virtual	~MutantStack( void );
 
 	public :
-		typedef typename std::vector<T>::iterator iterator;
+		typedef typename std::vector<T>::container_type::iterator iterator;
 		iterator	begin();
 		iterator	end();
 
