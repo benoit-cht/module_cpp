@@ -26,7 +26,10 @@ class MutantStack: public std::stack<T> {
 		virtual	~MutantStack( void );
 
 	public :
+    // aliase for  the iterator types.
 		typedef typename std::stack<T>::container_type::iterator iterator;
+
+	public :
 		iterator	begin();
 		iterator	end();
 
