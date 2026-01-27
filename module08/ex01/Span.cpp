@@ -71,15 +71,6 @@ unsigned int	Span::longestSpan() const
 	return ( vec.back() - vec.front() ) ;
 }
 
-template<typename ITR>
-void	Span::addRange(ITR begin, ITR end)
-{
-	if (_Number.size() + std::distance(begin, end) > _N)
-		throw FullSpanException();
-	_Number.insert(_Number.end(), begin, end);
-}
-
-
 /* ************************************************************************** */
 
 const char*	Span::FullSpanException::what() const throw()
