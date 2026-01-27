@@ -30,8 +30,7 @@ class Span {
 		unsigned int	shortestSpan() const;
 		unsigned int	longestSpan() const;
 
-		template<typename ITR>
-		void		addRange(ITR begin, ITR end);
+		template<typename ITR>void		addRange(ITR begin, ITR end);
 
 	public :
 		class FullSpanException: public std::exception 
