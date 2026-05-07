@@ -6,7 +6,7 @@
 #    By: bchallat <bchallat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 09:18:13 by bchallat          #+#    #+#              #
-#    Updated: 2025/03/12 13:32:00 by bchallat         ###   ########.fr        #
+#    Updated: 2026/05/07 19:15:33 by bchallat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,15 @@ else
 	FLAG	= -Wall -Wextra -Werror -std=c++98
 endif
 
-CCFLAG	= $(CC) $(FLAG) 
+CCFLAG	= $(CC) $(FLAG) -I.
 RMF	= rm -rf
-NAME	= ex00 
+NAME	= PmergeMe
 
 # **************************************************************************** #
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp	\
+SRC	=	main.cpp\
 		
 OBJS	=	$(SRC:.cpp=.o)
 
