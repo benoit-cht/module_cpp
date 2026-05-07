@@ -10,3 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BITCOINEXCHANGE_HTTP_INCLUDED
+#define BITCOINEXCHANGE_HTTP_INCLUDED
+
+#define PATH "data.csv"
+
+#include <iostream>
+
+class BitcoinExchange {
+  
+  public:
+    BitcoinExchange( void );
+    virtual ~BitcoinExchange( void );
+
+};
+
+#endif // !BITCOINEXCHANGE_HTTP_INCLUDED
+
+/* ************************************************************************** */
+/*                                                                            */
+/* ************************************************************************** */
+

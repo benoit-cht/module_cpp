@@ -31,13 +31,13 @@ endif
 
 CCFLAG	= $(CC) $(FLAG) 
 RMF	= rm -rf
-NAME	= ex00 
+NAME	= btc 
 
 # **************************************************************************** #
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp	\
+SRC	=	main.cpp	BitcoinExchange.cpp \
 		
 OBJS	=	$(SRC:.cpp=.o)
 
