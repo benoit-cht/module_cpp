@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
+#include <deque>
 #include <list>
 #include <ctime>
 #include <cstdlib>
@@ -22,9 +22,12 @@
 
 template<typename T>
 static void print_cont(T& cont, std::string msg);
+
+template<typename T>
+static bool parsing(int ac, char *av[], T& input);
+
 static int string_to_int(const std::string& s);
 static bool is_positive_integer(const std::string& s);
-static bool parsing(int ac, char *av[], std::vector<int>& vec);
 
 /* ============================================================================= */
 /*                                                                               */
@@ -32,21 +35,21 @@ static bool parsing(int ac, char *av[], std::vector<int>& vec);
 
 int main(int ac, char *av[])
 {
-  std::vector<int>            vec;
-  PmergeMe<std::vector<int>>  pmerge_vec;
+  std::deque<int>              input;
+  PmergeMe<std::deque<int>>   pmerge_deq;
   PmergeMe<std::list<int>>    pmerge_lst; 
 
-  if( ac < 2 || !parsing(ac, av, vec))
+  if( ac < 2 || !parsing(ac, av, input))
   {
     std::cerr << "Error : bad argument." << std::endl;
     return ( EXIT_FAILURE );
   }
-  std::list<int> lst(vec.begin(), vec.end());
+  std::list<int> lst(input.begin(), input.end());
   
-  std::clock_t start_vec = std::clock();
-  std::vector<int> sorted_vec = pmerge_vec.merge(vec);
-  std::clock_t end_vec = std::clock();
-  double time_vec = (double)(end_vec - start_vec) * 1000000.0 / CLOCKS_PER_SEC;
+  std::clock_t start_deq = std::clock();
+  std::deque<int> sorted_deq = pmerge_deq.merge(input);
+  std::clock_t end_deq = std::clock();
+  double time_deq = (double)(end_deq - start_deq) * 1000000.0 / CLOCKS_PER_SEC;
 
   std::clock_t start_lst = std::clock();
   std::list<int> sorted_lst = pmerge_lst.merge(lst);
@@ -54,11 +57,11 @@ int main(int ac, char *av[])
   double time_lst = (double)(end_lst - start_lst) * 1000000.0 / CLOCKS_PER_SEC;
 
  
-  print_cont(vec, "Before: ");
-  print_cont(sorted_vec, "After: ");
+  print_cont(input, "Before: ");
+  print_cont(sorted_deq, "After: ");
 
-  std::cout << "Time to process a range of " << vec.size() 
-            << " elements with std::vector: " << time_vec << " us" << std::endl;
+  std::cout << "Time to process a range of " << input.size() 
+            << " elements with std::vector: " << time_deq << " us" << std::endl;
   
   std::cout << "Time to process a range of " << lst.size() 
             << " elements with std::list: " << time_lst << " us" << std::endl;
@@ -100,7 +103,8 @@ static int string_to_int(const std::string& s)
   return (static_cast<int>(strtol(s.c_str(), NULL, 10)));
 }
 
-static bool parsing(int ac, char *av[], std::vector<int>& vec)
+template<typename T>
+static bool parsing(int ac, char *av[], T& input)
 {
   for (int i = 1; i < ac; i++) 
   {
@@ -112,7 +116,7 @@ static bool parsing(int ac, char *av[], std::vector<int>& vec)
     }
     
     int num = string_to_int(arg);
-    vec.push_back(num);
+    input.push_back(num);
   }
   
   return (true);
