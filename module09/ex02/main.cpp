@@ -35,9 +35,9 @@ static bool is_positive_integer(const std::string& s);
 
 int main(int ac, char *av[])
 {
-  std::deque<int>              input;
-  PmergeMe<std::deque<int>>   pmerge_deq;
-  PmergeMe<std::list<int>>    pmerge_lst; 
+  std::deque<int>           input;
+  PmergeMe<std::deque<int>> pmerge_deq;
+  PmergeMe<std::list<int>>  pmerge_lst; 
 
   if( ac < 2 || !parsing(ac, av, input))
   {
@@ -80,7 +80,7 @@ static bool is_positive_integer(const std::string& s)
     size_t i = 0;
 
     if ( s.empty() ) 
-      return false;
+      return (false);
 
     if (s[0] == '+') 
       i = 1;
@@ -106,16 +106,15 @@ static int string_to_int(const std::string& s)
 template<typename T>
 static bool parsing(int ac, char *av[], T& input)
 {
+  int num = 0;
+
   for (int i = 1; i < ac; i++) 
   {
     std::string arg = av[i];
     if (!is_positive_integer(arg)) 
-    {
-      std::cerr << "Error " << std::endl;
       return (false);
-    }
     
-    int num = string_to_int(arg);
+    num = string_to_int(arg);
     input.push_back(num);
   }
   
