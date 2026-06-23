@@ -51,7 +51,7 @@ static bool   isAvalidInput(std::string str) {
 */
 static bool isOperator(char c)  {
 
-    return (c == '+' || c == '-' || c == '*' || c == '/');
+    return (c == ' ' || c == '+' || c == '-' || c == '*' || c == '/');
 }
 
 static bool isDigit(char c) {
