@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <exception>
 #include <stack>
 
@@ -18,16 +19,16 @@ class RPN {
 
   public:
     RPN( void );
-    RPN(const RPN& other) const;
-    RPN(const RPN& other) const;
-    ~RPM( void );
+    RPN(const RPN& other) ;
+    RPN& operator=(const RPN& other) ;
+    virtual ~RPN( void );
 
   public:
-    int                     getResulte( void ) const;
-    std::stack<std::string> getStack( void ) const
+    int                     getResult( void ) const;
+    std::stack<std::string> getStack( void ) const ;
 
   public:
-    void          setResulte(int number);
+    void          setResult(int number);
     void          setStack(std::string& input);
   
   public:
@@ -36,17 +37,17 @@ class RPN {
   public:
     class divisionByZeroException : public std::exception {
 
-      const char* what() const trow();
+      const char* what() const throw();
     };
 
     class operatorToNeedException : public std::exception {
 
-      const char* what() const trow();
+      const char* what() const throw();
     };
 
     class badCharacterException : public std::exception {
 
-      const char* what() const trow();
+      const char* what() const throw();
     };
       
   private:
