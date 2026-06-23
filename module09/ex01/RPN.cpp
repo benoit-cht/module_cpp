@@ -77,7 +77,18 @@ void    RPN::setStack(std::string& input) {
 /* ========================================================================== */
 
 
-//int           RPN::evaluate( void );
+int     RPN::evaluate( void ) {
+
+  std::string   top = _stack.top();
+  int size = _stack.size();
+  for (int i = 0; i < size - 1; i++)  {
+      
+    std::cout << top << std::endl;
+    _stack.pop();
+    top = _stack.top();
+  }
+  return(0);
+}
 
 
 /* ========================================================================== */
