@@ -49,9 +49,14 @@ static bool   isAvalidInput(std::string str) {
   return ( true );
 }
 */
-static bool isOperator(char c)  {
+static bool isSpace(char c)  {
 
-    return (c == ' ' || c == '+' || c == '-' || c == '*' || c == '/');
+  return (c == ' ');
+}
+
+static bool isOperator(char c)  { 
+
+    return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
 static bool isDigit(char c) {
@@ -60,16 +65,28 @@ static bool isDigit(char c) {
 }
 
 void    RPN::setStack(std::string& input) {
+  
 
+  std::string number;
   for (std::string::iterator itr = input.begin(); itr < input.end(); itr++) {
 
-    if ( !isOperator(*itr) && !isDigit(*itr))  {
+    if ( !isOperator(*itr) && !isDigit(*itr) && !isSpace(*itr))  {
 
       throw badCharacterException();
-    } else {
-      
+
+    } else if (!isOperator(*itr) && !isSpace(*itr)) {
+
       std::string pop(1, *itr);
-      _stack.push(pop);
+      number += pop;
+    
+    } else {
+
+      _stack.push(number);
+      std::string op(1, *itr);
+      _stack.push(op);
+      number.clear();
+
+      
     }
   }
 }
@@ -82,8 +99,10 @@ int     RPN::evaluate( void ) {
   std::string   top = _stack.top();
   int size = _stack.size();
   for (int i = 0; i < size - 1; i++)  {
-      
-    std::cout << top << std::endl;
+    
+    if (top != " ")
+        std::cout << top << std::endl;
+    
     _stack.pop();
     top = _stack.top();
   }
