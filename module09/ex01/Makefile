@@ -22,9 +22,11 @@ RESET	= \033[0m
 
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
+	ECHO_FLAG = echo
 	CC	= clang++
 	FLAG	= -g3 -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 else
+	ECHO_FLAG = echo -e
 	CC	= c++
 	FLAG	= -Wall -Wextra -Werror -std=c++98
 endif
@@ -42,7 +44,7 @@ SRC	=	main.cpp	\
 OBJS	=	$(SRC:.cpp=.o)
 
 %.o: %.cpp
-	@echo  "$(GREEN)[OK]       	🛠️ $(YELLOW)Compiling ... $(BLUE)$<$(RESET)"
+	@${ECHO_FLAG}  "$(GREEN)[OK]       	🛠️ $(YELLOW)Compiling ... $(BLUE)$<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 # **************************************************************************** #
@@ -52,15 +54,15 @@ OBJS	=	$(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex02 --\n $(RESET)" 
+	@${ECHO_FLAG}  "$(GREEN)[OK]       	✅ $(YELLOW)CREATED   EXE$(BLUE) -- ex02 --\n $(RESET)" 
 	@$(CCFLAG) -g3 $(OBJS) -o $(NAME)
 
 clean:
-	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete file obj $(RESET)\n" 
+	@${ECHO_FLAG} "$(RED)[DELETE]	🧹$(BLUE) Delete file obj $(RESET)\n" 
 	@$(RMF) $(OBJDIR) $(OBJS)
 
 fclean:
-	@echo "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj $(RESET)\n"
+	@${ECHO_FLAG} "$(RED)[DELETE]	🧹$(BLUE) Delete all file obj $(RESET)\n"
 	@$(RMF) $(OBJDIR) $(OBJS) $(NAME)
 
 re: fclean all
