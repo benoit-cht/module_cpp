@@ -49,7 +49,12 @@ class RPN {
 
       const char* what() const throw();
     };
-      
+    
+    class negativeNumberForibenException : public std::exception {
+
+      const char* what() const throw();
+    };
+
   private:
     int                     _result;
     std::stack<std::string> _stack;

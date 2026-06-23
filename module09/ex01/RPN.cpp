@@ -59,7 +59,7 @@ static bool isDigit(char c) {
     return std::isdigit(static_cast<unsigned char>(c));
 }
 
-void            RPN::setStack(std::string& input) {
+void    RPN::setStack(std::string& input) {
 
   for (std::string::iterator itr = input.begin(); itr < input.end(); itr++) {
 
@@ -99,6 +99,10 @@ const char* RPN::badCharacterException::what() const throw() {
   return (" a character input is incorect !");
 }
 
+const char* RPN::negativeNumberForibenException::what() const throw() {
+
+  return (" a negative number is foriben !");
+}
 /* ========================================================================== */
 /*                                                                            */
 /* ========================================================================== */
