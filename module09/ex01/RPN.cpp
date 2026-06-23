@@ -10,20 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "RPN.hpp"
+
 /* ========================================================================== */
 /*                                                                            */
 /* ========================================================================== */
 
-RPN::RPN( void ){ std::cout << "RPN: Call constructor" << std::endl}
+RPN::RPN( void ){ std::cout << "RPN: Call constructor" << std::endl; }
 
-RPN::~RPN( void ){ std::cout << "RPN:" Call destructor << std::endl}
+RPN::~RPN( void ){ std::cout << "RPN: Call destructor" << std::endl; }
 
 RPN::RPN(const RPN& other): _stack(other._stack), _result(other._result) {}
 
-RPN::RPN(const RPN& other)  {
+RPN& RPN::operator=(const RPN& other)  {
 
   _stack = other._stack;
-  _result = other.result;
+  _result = other._result;
   return( *this );
 }
 
@@ -31,32 +33,43 @@ RPN::RPN(const RPN& other)  {
 /*                                                                            */
 /* ========================================================================== */
 
-int             RPN::getResult( void ) const { return(_result); }
-std::stack<int> RPN::getStack( void ) const { return(_stack); }
+int                     RPN::getResult( void ) const { return(_result); }
+std::stack<std::string> RPN::getStack( void ) const { return(_stack); }
 
 void            RPN::setResult(int number) { _result = number; }
 
 /* ========================================================================== */
-
+/*
 static bool   isAvalidInput(std::string str) {
 
-  if (str != '+' || str != '-' || str != '*' || str != '/' || !isdigit( atoi(line.c_str()) )) {
+  if (str != "+" || str != "-" || str != "*" || str != "/" || !std::isdigit( std::atoi(str.c_str()) )) {
 
     return ( false );
   }
   return ( true );
+}
+*/
+static bool isOperator(char c)  {
+
+    return (c == '+' || c == '-' || c == '*' || c == '/');
+}
+
+static bool isDigit(char c) {
+
+    return std::isdigit(static_cast<unsigned char>(c));
 }
 
 void            RPN::setStack(std::string& input) {
 
   for (std::string::iterator itr = input.begin(); itr < input.end(); itr++) {
 
-    if (!isAvalidInput(itr))  {
+    if ( !isOperator(*itr) && !isDigit(*itr))  {
 
-      trow badCharacterException();
+      throw badCharacterException();
     } else {
-
-      _stack.push_back(itr);
+      
+      std::string pop(1, *itr);
+      _stack.push(pop);
     }
   }
 }
@@ -71,17 +84,17 @@ void            RPN::setStack(std::string& input) {
 /*                                                                            */
 /* ========================================================================== */
 
-const char* RPN::divisionByZeroException::what() const trow() {
+const char* RPN::divisionByZeroException::what() const throw() {
 
   return ("Division by zero is Impossible !");
 }
 
-const char* RPN::operatorToNeedException::what() const trow {
+const char* RPN::operatorToNeedException::what() const throw() {
 
   return ("Need a operator or Number to valid notation !");
 }
 
-const char* RPN::badCharacterException::what() const trow() {
+const char* RPN::badCharacterException::what() const throw() {
 
   return (" a character input is incorect !");
 }
