@@ -39,7 +39,7 @@ NAME	= RPN
 #					SOURCES				       #
 # **************************************************************************** #
 
-SRC	=	main.cpp	\
+SRC	=	main.cpp RPN.cpp	\
 		
 OBJS	=	$(SRC:.cpp=.o)
 
