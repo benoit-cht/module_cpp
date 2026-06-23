@@ -10,3 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <exception>
+#include <stack>
+
+class RPN {
+
+  public:
+    RPN( void );
+    RPN(const RPN& other) const;
+    RPN(const RPN& other) const;
+    ~RPM( void );
+
+  public:
+    int                     getResulte( void ) const;
+    std::stack<std::string> getStack( void ) const
+
+  public:
+    void          setResulte(int number);
+    void          setStack(std::string& input);
+  
+  public:
+    int           evaluate( void );
+
+  public:
+    class divisionByZeroException : public std::exception {
+
+      const char* what() const trow();
+    };
+
+    class operatorToNeedException : public std::exception {
+
+      const char* what() const trow();
+    };
+
+    class badCharacterException : public std::exception {
+
+      const char* what() const trow();
+    };
+      
+  private:
+    int                     _result;
+    std::stack<std::string> _stack;
+};
+
+
+/* ========================================================================== */
+/*                                                                            */
+/* ========================================================================== */
