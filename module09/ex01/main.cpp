@@ -11,13 +11,26 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include "RPN.hpp"
 
 int main(int ac, char *av[])
 {
-  if (ac == 1 || av[1] == NULL) {
+  if (ac != 2 || av[1] == NULL) {
 
     std::cerr << "Error: argument is invalide " << std::endl;
     return (EXIT_FAILURE);
+  }
+  
+  std::string  input = av[1];
+
+  try {
+
+    RPN polishNoptaition;
+    polishNoptaition.setStack(input);
+
+  } catch(const std::exception& e)  {
+    
+    std::cerr << "Error:" << e.what() << std::endl;
   }
 
   return (EXIT_SUCCESS);
