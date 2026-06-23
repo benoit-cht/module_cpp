@@ -27,6 +27,7 @@ int main(int ac, char *av[])
 
     RPN polishNoptaition;
     polishNoptaition.setStack(input);
+    polishNoptaition.evaluate();
 
   } catch(const std::exception& e)  {
     
