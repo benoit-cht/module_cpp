@@ -32,7 +32,8 @@ class RPN {
     void          setStack(std::string& input);
   
   public:
-    int           evaluate( void );
+    int           calculator( void );
+    int           microCalculator(int& value1, int& value2, std::string& ope);
 
   public:
     class divisionByZeroException : public std::exception {
