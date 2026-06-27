@@ -28,8 +28,10 @@ int main(int ac, char *av[])
     DataFile  data;
     InputFile inpufile(input);
     
-    data.parseFile();
-    //inpufile.parseFile();
+    //data.parseFile();
+    inpufile.parseFile();
+
+    data.setMapFile();
 
   } catch (const std::exception& e){
 
