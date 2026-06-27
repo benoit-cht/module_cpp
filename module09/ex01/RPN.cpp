@@ -119,6 +119,8 @@ int     RPN::calculator( void ) {
   std::string operation = "";
 
   //std::cout << "init-> "<< number_1 << operation << number_2 << _stack.size() << ":" <<_stack.top() << std::endl;
+  if (_stack.size() == 0)
+    throw operatorToNeedException();
   for (size_t itr = (_stack.size() * 4)-1; itr != 0; itr--)  { // rique de arret une iteration trop tot 
       
       //std::cout << itr << "-> "<< number_1 << operation << number_2 << std::endl;
@@ -166,22 +168,22 @@ int     RPN::calculator( void ) {
 
 const char* RPN::divisionByZeroException::what() const throw() {
 
-  return ("Division by zero is Impossible !");
+  return ("");//"Division by zero is Impossible !");
 }
 
 const char* RPN::operatorToNeedException::what() const throw() {
 
-  return ("Need a operator or Number to valid notation !");
+  return ("");//"Need a operator or Number to valid notation !");
 }
 
 const char* RPN::badCharacterException::what() const throw() {
 
-  return (" a character input is incorect !");
+  return ("");//" a character input is incorect !");
 }
 
 const char* RPN::negativeNumberForibenException::what() const throw() {
 
-  return (" a negative number is foriben !");
+  return ("");//" a negative number is foriben !");
 }
 /* ========================================================================== */
 /*                                                                            */
