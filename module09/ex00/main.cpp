@@ -23,8 +23,16 @@ int main(int ac, char *av[])
 
   std::string input = av[1];
 
-  DataFile  data(PATH);
-  InputFile inpufile(input);
+  try {
+    
+    DataFile  data;
+    InputFile inpufile(input);
+
+  } catch (const std::exception& e){
+
+    std::cout << "Error: " << e.what() << std::endl;
+
+  }
 
   return ( EXIT_SUCCESS );
 }

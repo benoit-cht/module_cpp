@@ -55,7 +55,7 @@ AFile::~AFile( void )  {
 
   } else  {
 
-    std::cout << " file is close" << std::endl;
+    std::cout << "file is close" << std::endl;
 
   }
 
@@ -83,7 +83,7 @@ std::ofstream&   AFile::getFile( void ) {return( _file );}
 //void    AFile::setFile(const char* path)  { _file = std::ofstream file(path) }
 void AFile::setFile(std::string path) {
     _path = path; // Met à jour _path
-    _file.open(path); // Ouvre le fichier
+    _file.open(path, std::ios::in); // Ouvre le fichier
     if (!_file.is_open()) {
         throw ErrorOpenFileException();
     }
