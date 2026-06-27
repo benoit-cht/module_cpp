@@ -16,9 +16,9 @@
 /*                                                                            */
 /* ========================================================================== */
 
-RPN::RPN( void ){ std::cout << "RPN: Call constructor" << std::endl; }
+RPN::RPN( void ){ /*std::cout << "RPN: Call constructor" << std::endl;*/ }
 
-RPN::~RPN( void ){ std::cout << "RPN: Call destructor" << std::endl; }
+RPN::~RPN( void ){ /*std::cout << "RPN: Call destructor" << std::endl;*/ }
 
 RPN::RPN(const RPN& other): _stack(other._stack), _result(other._result) {}
 
@@ -40,75 +40,126 @@ void            RPN::setResult(int number) { _result = number; }
 
 /* ========================================================================== */
 
-static bool isSpace(char c)  {
+static bool isSpace(const char* c)  {
 
-  return (c == ' ');
+  return (*c == ' ');
 }
 
-static bool isOperator(char c)  { 
+static bool isOperator(const char* c)  { 
 
-    return (c == '+' || c == '-' || c == '*' || c == '/');
+    return (*c == '+' || *c == '-' || *c == '*' || *c == '/');
 }
 
-static bool isDigit(char c) {
+static bool isDigit(const char* c) {
 
-    return std::isdigit(static_cast<unsigned char>(c));
+    return std::isdigit(static_cast<unsigned char>(*c));
 }
 
 void    RPN::setStack(std::string& input) {
   
-
-  std::string number;
-  for (std::string::iterator itr = input.begin(); itr < input.end(); itr++) {
-
-    if ( !isOperator(*itr) && !isDigit(*itr) && !isSpace(*itr))  {
+  
+  //for (size_t itr = input.size() - 1; itr <= 0; itr--) {
+  for (int itr = input.size() - 1; itr != -1; itr--) {
+    
+    if ( !isOperator(&input[itr] ) && !isDigit(&input[itr]) && !isSpace(&input[itr]) )  {
 
       throw badCharacterException();
 
-    }else if (isDigit(*itr))  {
-
-            number += *itr;
-
-    }else if (isOperator(*itr)) {
-
-      if (!number.empty()) {
-
-          _stack.push(number);
-          number.clear();
-      }
+    }else if (isDigit(&input[itr]))  {
       
-      std::string op(1, *itr);
+        std::string op(1, input[itr]);
+        _stack.push(op);
+
+    }else if (isOperator(&input[itr])) {
+
+      std::string op(1, input[itr]);
       _stack.push(op);
     }
+    //std::cout << "top = " << _stack.top() << std::endl;
   }
-  if (!number.empty())  {
-      _stack.push(number);
-      number.clear();
-  }
+  
+
 }
 
 /* ========================================================================== */
 
+int     RPN::microCalculator(int& value1, int& value2, std::string& ope)  {
 
-int     RPN::evaluate( void ) {
-
-  std::string   top = _stack.top();
-  int size = _stack.size();
-  for (int i = 0; i < size; i++)  {
-    
-    std::cout << top;
-    if (i < size - 1) {
-
-      _stack.pop();
-      top = _stack.top();
+  if (ope == "*") {
   
-    }
+    _stack.push(std::to_string(value1 * value2));
   }
-  std::cout<< std::endl;
-  return(0);
+  else if (ope == "+") {
+ 
+    _stack.push(std::to_string(value1 + value2));
+  }
+  else if (ope == "-"){
+
+    _stack.push(std::to_string(value1 - value2));
+  }
+  else if (ope == "/")  {
+    
+    if (value2 == 0)
+      throw divisionByZeroException();
+    
+    _stack.push(std::to_string(value1 / value2));
+  }
+
+  value1  = -1;
+  value2  = -1;
+  ope     = "";
+  return (1);
+
 }
 
+int     RPN::calculator( void ) {
 
+  int         number_1 = -1 ;
+  int         number_2 = -1 ;
+  std::string operation = "";
+
+  //std::cout << "init-> "<< number_1 << operation << number_2 << _stack.size() << ":" <<_stack.top() << std::endl;
+  for (size_t itr = (_stack.size() * 4)-1; itr != 0; itr--)  { // rique de arret une iteration trop tot 
+      
+      //std::cout << itr << "-> "<< number_1 << operation << number_2 << std::endl;
+      if ( number_1 != -1 && number_2 != -1 && operation != "" ) {
+
+          RPN::microCalculator(number_1, number_2, operation);
+          //std::cout << "stack.top = "<<_stack.top() << std::endl;
+
+      } else if ( !_stack.empty() && isDigit(_stack.top().c_str()) && number_1 == -1) {
+
+          number_1 = atoi(_stack.top().c_str());  
+          if  ( number_1 < 0 ) throw negativeNumberForibenException();
+          _stack.pop();
+      
+      } else if ( !_stack.empty() && isDigit(_stack.top().c_str()) && number_2 == -1) {
+
+          number_2 = atoi(_stack.top().c_str());
+          if  ( number_2 < 0 ) throw negativeNumberForibenException();
+          _stack.pop();
+
+      } else if (!_stack.empty() && isOperator(_stack.top().c_str()) && operation == "") {
+
+          operation = _stack.top();
+          _stack.pop();
+
+      } else if (!_stack.empty() && number_1 != -1 && number_2 != -1 && isDigit(_stack.top().c_str()) ) {
+
+          throw operatorToNeedException();
+
+      } else if ((number_1 == -1 || number_2 == -1) && operation != "" ) {
+          
+          throw operatorToNeedException();
+      }
+  }
+  
+
+  _stack.push(std::to_string(number_1));
+  if (!_stack.empty())
+    std::cout <<_stack.top() << std::endl;
+  return (0);
+}
 /* ========================================================================== */
 /*                                                                            */
 /* ========================================================================== */
