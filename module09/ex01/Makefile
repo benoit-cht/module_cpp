@@ -24,11 +24,11 @@ UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
 	ECHO_FLAG = echo
 	CC	= clang++
-	FLAG	= -g3 -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+	FLAG	= -g -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 else
 	ECHO_FLAG = echo -e
 	CC	= c++
-	FLAG	= -Wall -Wextra -Werror -std=c++98
+	FLAG	= -g -Wall -Wextra -Werror -std=c++98
 endif
 
 CCFLAG	= $(CC) $(FLAG) 
