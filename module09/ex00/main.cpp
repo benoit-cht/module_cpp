@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include "BitcoinExchange.hpp"
 
 int main(int ac, char *av[])
 {
@@ -19,6 +20,8 @@ int main(int ac, char *av[])
     std::cerr << "Error : bad number of argument or not file." << std::endl;
     return ( EXIT_FAILURE );
   }
+
+  DataFile  data(PATH);
 
   return ( EXIT_SUCCESS );
 }
