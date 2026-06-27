@@ -28,7 +28,7 @@ int main(int ac, char *av[])
     DataFile  data;
     InputFile inpufile(input);
     
-    //data.parseFile();
+    data.parseFile();
     inpufile.parseFile();
 
     data.setMapFile();
