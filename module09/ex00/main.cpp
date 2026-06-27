@@ -21,7 +21,10 @@ int main(int ac, char *av[])
     return ( EXIT_FAILURE );
   }
 
+  std::string input = av[1];
+
   DataFile  data(PATH);
+  InputFile inpufile(input);
 
   return ( EXIT_SUCCESS );
 }
