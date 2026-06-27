@@ -20,6 +20,8 @@
 #include <map>
 #include <string>
 #include <exception>
+#include <algorithm>
+#include <cctype>
 
 class AFile  {
 
@@ -31,11 +33,12 @@ class AFile  {
   public:
     int     openFile( void );
     bool    parseFile( void );
+    bool    checkLine(std::string& str);
 
   public:
     double          getExchangeRate(const std::string& date) const;
     std::string     getPath(void) const ;
-    std::ofstream&   getFile( void );
+    std::ifstream&   getFile( void );
 
   public:
     void            setMapFile( void );
@@ -60,7 +63,7 @@ class AFile  {
 
 
   private:
-    std::ofstream                 _file;
+    std::ifstream                 _file;
     std::string                   _path;
     std::map<std::string, double> _mapFile;
 
@@ -73,6 +76,7 @@ class DataFile: public AFile {
     DataFile(std::string path);
     virtual ~DataFile( void );
     virtual void    setPath(std::string path);
+    bool    parseFile( void );
 
 };
 
@@ -83,6 +87,7 @@ class InputFile: public AFile {
     InputFile(std::string path);
     virtual ~InputFile( void );
     virtual void    setPath(std::string path);
+    bool    parseFile( void );
 
 };
 

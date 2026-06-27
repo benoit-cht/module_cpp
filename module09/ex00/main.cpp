@@ -27,6 +27,9 @@ int main(int ac, char *av[])
     
     DataFile  data;
     InputFile inpufile(input);
+    
+    data.parseFile();
+    //inpufile.parseFile();
 
   } catch (const std::exception& e){
 

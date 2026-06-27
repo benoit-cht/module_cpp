@@ -61,6 +61,66 @@ AFile::~AFile( void )  {
 
 }
 
+/*                               ~~ other Methode ~~                          */
+
+static bool checkDate(std::string& str)  {
+
+  return(true);
+}
+
+static bool checkRate(std::string& str)  {
+  
+  char	*end;
+  double	doub;
+  std::string rate;
+
+  size_t pos = str.find(',');
+  if(pos == std::string::npos)  {
+
+    return(false);
+  }
+  rate = str.substr(pos + 1,str.length());
+  //std::cout << rate << std::endl;
+	doub = strtod(str.c_str(), &end);
+  if ( !rate.length() || *end != '\0' && (doub < 0 || doub > __INT_MAX__)) {
+
+      return(false);
+  }
+  return(true);
+}
+
+bool    AFile::checkLine(std::string& str)  {
+
+  if (!checkDate(str) || !checkRate(str)) {
+
+    throw ErrorBadLineException();
+  }
+
+  return(true);
+}
+
+
+bool    AFile::parseFile( void )  {
+
+  std::string line;
+
+  std::getline(getFile(), line);
+  if (line != "date,exchange_rate")  {
+    
+    throw ErrorBadLineException();
+  }
+
+  while (std::getline(getFile(), line))
+  {
+    checkLine(line);
+  }
+  //std::getline(getFile(), line);
+  //checkLine(line);
+  std::cout << "line: " << line << std::endl;
+
+  return ( true );
+}
+
 /*                                ~~ get Methode ~~                           */
 
 /*double          AFile::getExchangeRate(const std::string& date) const {
@@ -70,7 +130,7 @@ AFile::~AFile( void )  {
 
 std::string     AFile::getPath(void) const { return( _path ); }
 
-std::ofstream&   AFile::getFile( void ) {return( _file );}
+std::ifstream&   AFile::getFile( void ) {return( _file );}
 
 
 /*                                ~~ set Methode ~~                           */
@@ -80,15 +140,21 @@ std::ofstream&   AFile::getFile( void ) {return( _file );}
     
 }*/
 
-//void    AFile::setFile(const char* path)  { _file = std::ofstream file(path) }
 void AFile::setFile(std::string path) {
-    _path = path; // Met à jour _path
-    _file.open(path, std::ios::in); // Ouvre le fichier
+
+    _path = path;
+ 
+    _file.open(path, std::ios::in);
     if (!_file.is_open()) {
-        throw ErrorOpenFileException();
+
+      throw ErrorOpenFileException();
     }
 }
-void    AFile::setPath(std::string path)  { _path = path;}
+
+void    AFile::setPath(std::string path)  { 
+
+  _path = path;
+}
 
 /*                                ~~ Exception ~~                             */
 
@@ -115,11 +181,50 @@ DataFile::DataFile():AFile() {}
 DataFile::DataFile(std::string path):AFile(path) {}
 DataFile::~DataFile(){}
 
+bool    DataFile::parseFile( void )  {
+
+  std::string line;
+
+  std::getline(getFile(), line);
+  if (line != "date,exchange_rate")  {
+    
+    throw ErrorBadLineException();
+  }
+
+  while (std::getline(getFile(), line))
+  {
+    checkLine(line);
+  }
+  //std::getline(getFile(), line);
+  //checkLine(line);
+  std::cout << "data line: " << line << std::endl;
+
+  return ( true );
+}
+
 void DataFile::setPath(std::string path)
 { AFile::setPath(path);}
 
+/* ========================================================================== */
+/*                                                                            */
+/* ========================================================================== */
+
 InputFile::InputFile(std::string path):AFile(path){}
 InputFile::~InputFile(){}
+bool    InputFile::parseFile( void )  {
+
+  std::string line;
+
+  while (std::getline(getFile(), line))
+  {
+    checkLine(line);
+  }
+  //std::getline(getFile(), line);
+  //checkLine(line);
+  std::cout << "data line: " << line << std::endl;
+
+  return ( true );
+}
 
 void InputFile::setPath(std::string path)
 { AFile::setPath(path);}
