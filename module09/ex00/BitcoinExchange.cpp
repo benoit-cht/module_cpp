@@ -20,42 +20,42 @@
 
 AFile::AFile( void ) 
 {
-  std::cout << "default constructor of AFile" << std::endl;
+ // std::cout << "default constructor of AFile" << std::endl;
   
   setFile(PATH);
   if ( !_file.is_open())  {
     
     throw ErrorOpenFileException();
   }
-  std::cout << "file is open " << std::endl;
+  //std::cout << "file is open " << std::endl;
 
 }
 
 AFile::AFile(std::string path) {
 
-  std::cout << "constructor of AFile witch path" << std::endl;
+  //std::cout << "constructor of AFile witch path" << std::endl;
   
   setFile(path);
   if( !_file.is_open())  {
     
     throw ErrorOpenFileException();
   }
-  std::cout << "file is open " << std::endl;
+  //std::cout << "file is open " << std::endl;
 
 }
 
 AFile::~AFile( void )  {
 
-  std::cout << "Call destructor file status: ";
+  //std::cout << "Call destructor file status: ";
 
   _file.close();
   if (_file.is_open())  {
 
-    std::cout << "Error close file" << std::endl;
+    //std::cout << "Error close file" << std::endl;
 
   } else  {
 
-    std::cout << "file is close" << std::endl;
+    //std::cout << "file is close" << std::endl;
 
   }
 
@@ -127,7 +127,6 @@ static bool checkRate(std::string& str)  {
     return(false);
   }
   rate = str.substr(pos + 1,str.length());
-  //std::cout << rate << std::endl;
 	doub = strtod(str.c_str(), &end);
   if ( !rate.length() || *end != '\0' && (doub < 0 || doub > __INT_MAX__)) {
 
@@ -138,7 +137,7 @@ static bool checkRate(std::string& str)  {
 
 bool    AFile::checkLine(std::string& str)  {
 
-  if (!checkDate(str)){// || !checkRate(str)) {
+  if (!checkDate(str) || !checkRate(str)) {
 
     throw ErrorBadLineException();
   }
@@ -189,7 +188,7 @@ double          AFile::getExchangeRate(const std::string& date) const {
         auto it = _mapFile.lower_bound(date);
         if (it == _mapFile.begin()) {
 
-            throw ErrorFindLineException();
+          std::cout << "Error: bad input => " << date << std::endl;
         }
         --it;
         return it->second;
@@ -211,8 +210,8 @@ void    AFile::setMapFile( void ) {
   std::string line;
   std::string rate;
 
-   _file.clear(); // ✅ Efface les flags d'erreur (eof, fail, etc.)
-    _file.seekg(0, std::ios::beg); // ✅ Retourne au début du fichier
+  _file.clear();
+  _file.seekg(0, std::ios::beg);
 
   while (std::getline(_file, line))
   {
@@ -225,11 +224,7 @@ void    AFile::setMapFile( void ) {
     _mapFile[date] = doub;
 
     //std::cout << _mapFile["2022-03-29"] <<  "test " << std::endl;
-    /*if (_mapFile[date].empty()) */
   }
-
-
-    
 }
 
 void AFile::setFile(std::string path) {
@@ -276,8 +271,8 @@ DataFile::~DataFile(){}
 bool    DataFile::parseFile( void )  {
 
   std::string line;
-  _file.clear(); // ✅ Efface les flags d'erreur (eof, fail, etc.)
-  _file.seekg(0, std::ios::beg); // ✅ Retourne au début du fichier
+  _file.clear();
+  _file.seekg(0, std::ios::beg);
 
 
   std::getline(_file, line);
@@ -290,15 +285,16 @@ bool    DataFile::parseFile( void )  {
   {
     checkLine(line);
   }
-  //std::getline(_file, line);
-  //checkLine(line);
-  std::cout << "data line: " << line << std::endl;
+  //std::cout << "data line: " << line << std::endl;
 
   return ( true );
 }
 
-void DataFile::setPath(std::string path)
-{ AFile::setPath(path);}
+void DataFile::setPath(std::string path)  { 
+
+  AFile::setPath(path);
+}
+
 
 /* ========================================================================== */
 /*                                                                            */
@@ -307,41 +303,45 @@ void DataFile::setPath(std::string path)
 InputFile::InputFile(std::string path):AFile(path){}
 InputFile::~InputFile(){}
 
-bool    InputFile::parseFile( void )  {
+void InputFile::setPath(std::string path) { 
 
+  AFile::setPath(path);
+}
+
+void  InputFile::be_calculator_value(std::string& input, DataFile& data) {
+ 
+  char        *end;
+  double      doub;
+  std::string date;
   std::string line;
-  _file.clear(); // ✅ Efface les flags d'erreur (eof, fail, etc.)
-  _file.seekg(0, std::ios::beg); // ✅ Retourne au début du fichier
+  std::string rate;
 
+   _file.clear(); // ✅ Efface les flags d'erreur (eof, fail, etc.)
+    _file.seekg(0, std::ios::beg); // ✅ Retourne au début du fichier
 
   while (std::getline(_file, line))
   {
-    checkLine(line);
+    size_t pos = line.find('|');
+    date = line.substr( 0, pos - 1);
+    if (pos != std::string::npos) {
+
+        rate = line.substr(pos + 2, line.length());
+	      doub = strtod(rate.c_str(), &end);
+        if (rate.length() == 0) {
+            
+          std::cout << "Error: bad input => 2001-42-42" << std::endl;
+        } else if (doub < 0 ) {
+
+          std::cout << "Error: not a positive number" << std::endl;
+        } else if ( doub > __INT_MAX__ )  {
+          
+          std::cout << "Error: too large a number" << std::endl;
+        } else {
+
+          std::cout << date << " => " << rate << " = " << data.getExchangeRate(date) * doub << std::endl;
+        }
+        //_mapFile[date] = doub;
+    }else
+      std::cout << "Error: bad input => 2001-42-42" << std::endl;
   }
-  //std::getline(getFile(), line);
-  //checkLine(line);
-  std::cout << "input line: " << line << std::endl;
-
-  return ( true );
 }
-
-void InputFile::setPath(std::string path)
-{ AFile::setPath(path);}
-
-void  InputFile::be_calculator_value(std::string& input, DataFile& data) {
-
-  try {
-
-    for (std::map<std::string, double>::iterator itr = _mapFile.begin(); itr != _mapFile.end(); itr++)  {
-
-
-    std::cout << itr->first << " => " << itr->second << " = " << data.getExchangeRate(itr->first) * itr->second << std::endl;
-    }
-
-  } catch (const std::exception& e) {
-
-    std::cout << "Error input: " << e.what() << std::endl;
-  }
-
-}
-

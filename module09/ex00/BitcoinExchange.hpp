@@ -77,7 +77,6 @@ class DataFile: public AFile {
     virtual ~DataFile( void );
     virtual void    setPath(std::string path);
     bool    parseFile( void );
-
 };
 
 class InputFile: public AFile {
@@ -87,7 +86,6 @@ class InputFile: public AFile {
     InputFile(std::string path);
     virtual ~InputFile( void );
     virtual void    setPath(std::string path);
-    bool    parseFile( void );
 
   public:
     void  be_calculator_value(std::string& input, DataFile& data);
