@@ -32,11 +32,15 @@ int main(int ac, char *av[])
     inpufile.parseFile();
 
     data.setMapFile();
+    inpufile.setMapFile();
+    
+    inpufile.be_calculator_value(input, data);
+    //std::cout << "(Test data)2015-06-05: " << data.getExchangeRate("2015-06-05") << std::endl;
+    //std::cout << "(Test input)2009-02-01: " << inpufile.getExchangeRate("2009-02-01") << std::endl;
 
   } catch (const std::exception& e){
 
-    std::cout << "Error: " << e.what() << std::endl;
-
+    std::cout << "Error data: " << e.what() << std::endl;
   }
 
   return ( EXIT_SUCCESS );
@@ -45,5 +49,4 @@ int main(int ac, char *av[])
 /* ************************************************************************** */
 /*                                                                            */
 /* ************************************************************************** */
-
 

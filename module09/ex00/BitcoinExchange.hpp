@@ -38,7 +38,7 @@ class AFile  {
   public:
     double          getExchangeRate(const std::string& date) const;
     std::string     getPath(void) const ;
-    std::ifstream&   getFile( void );
+    const std::ifstream&   getFile( void ) const ;
 
   public:
     void            setMapFile( void );
@@ -62,7 +62,7 @@ class AFile  {
     };
 
 
-  private:
+  protected:
     std::ifstream                 _file;
     std::string                   _path;
     std::map<std::string, double> _mapFile;
@@ -88,6 +88,9 @@ class InputFile: public AFile {
     virtual ~InputFile( void );
     virtual void    setPath(std::string path);
     bool    parseFile( void );
+
+  public:
+    void  be_calculator_value(std::string& input, DataFile& data);
 
 };
 
