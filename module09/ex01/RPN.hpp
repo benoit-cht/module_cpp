@@ -10,57 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef RPN_HPP
+#define RPN_HPP
+
 #include <iostream>
-#include <string>
-#include <exception>
 #include <stack>
+#include <string>
+#include <sstream>
+#include <cctype>
 
 class RPN {
+public:
+    RPN(void);
+    RPN(const RPN& other);
+    RPN& operator=(const RPN& other);
+    virtual ~RPN(void);
 
-  public:
-    RPN( void );
-    RPN(const RPN& other) ;
-    RPN& operator=(const RPN& other) ;
-    virtual ~RPN( void );
+    void setStack(const std::string& input);
+    int evaluate(void);
 
-  public:
-    int                     getResult( void ) const;
-    std::stack<std::string> getStack( void ) const ;
-
-  public:
-    void          setResult(int number);
-    void          setStack(std::string& input);
-  
-  public:
-    int           calculator( void );
-    int           microCalculator(int& value1, int& value2, std::string& ope);
-
-  public:
     class divisionByZeroException : public std::exception {
-
-      const char* what() const throw();
+        const char* what() const throw();
     };
-
-    class operatorToNeedException : public std::exception {
-
-      const char* what() const throw();
-    };
-
     class badCharacterException : public std::exception {
-
-      const char* what() const throw();
+        const char* what() const throw();
     };
-    
-    class negativeNumberForibenException : public std::exception {
-
-      const char* what() const throw();
+    class invalidExpressionException : public std::exception {
+        const char* what() const throw();
     };
 
-  private:
-    int                     _result;
-    std::stack<std::string> _stack;
+private:
+    std::stack<int> _stack;  // Pile de int, pas de string
 };
 
+#endif
 
 /* ========================================================================== */
 /*                                                                            */
