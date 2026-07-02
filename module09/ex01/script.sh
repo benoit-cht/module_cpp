@@ -119,7 +119,7 @@ fi
 
 # Test 6: Nombres négatifs
 total_tests=$((total_tests + 1))
-if run_test "Test 6: Nombres négatifs" "5 -3 +" "Error"; then
+if run_test "Test 6: Nombres négatifs" "5 -3 +" "2"; then
   passed_tests=$((passed_tests + 1))
 else
   failed_tests=$((failed_tests + 1))

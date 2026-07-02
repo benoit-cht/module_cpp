@@ -12,73 +12,136 @@
 
 # include "RPN.hpp"
 
-// Constructeurs/Destructeur
-RPN::RPN(void) {}
-RPN::RPN(const RPN& other) : _stack(other._stack) {}
-RPN& RPN::operator=(const RPN& other) {
-    if (this != &other) _stack = other._stack;
-    return *this;
-}
-RPN::~RPN(void) {}
+/*                             ~~ CANONIC FORM ~~                             */
 
-// Vérifie si un token est un opérateur
+RPN::RPN(void)  {
+
+  //std::cout << "Call Constructeurs" << std::endl;
+}
+
+RPN::~RPN(void) {
+
+  //std::cout << "Call Destructeur" << std::endl;
+}
+
+RPN::RPN(const RPN& other) : _stack(other._stack) {
+
+  //std::cout << " call constructeur of copy" << std::endl;
+}
+
+RPN& RPN::operator=(const RPN& other) {
+
+    if (this != &other) _stack = other._stack;
+
+    return( *this );
+}
+
+/*                             ~~ -- ~~                                     */
+
 static bool isOperator(const std::string& token) {
-    return (token == "+" || token == "-" || token == "*" || token == "/");
+
+    return ( token == "+" || token == "-" || token == "*" || token == "/" );
 }
 
 // Vérifie si un token est un nombre valide
 static bool isNumber(const std::string& token) {
-    if (token.empty()) return false;
+
     size_t i = 0;
-    if (token[0] == '-') {
-        if (token.size() == 1) return false; // "-" seul n'est pas un nombre
+
+    if (token.empty())  {
+
+      return( false );
+    }
+    if (token[0] == '-')  {
+
+        if (token.size() == 1)  {
+
+          return( false );
+        }
         i = 1;
     }
-    while (i < token.size()) {
-        if (!std::isdigit(static_cast<unsigned char>(token[i]))) {
-            return false;
+    while (i < token.size())
+    {
+
+        if (!std::isdigit(static_cast<unsigned char>(token[i])))  {
+ 
+          return( false);
         }
         i++;
     }
-    return true;
+    return( true );
 }
 
 void RPN::setStack(const std::string& input) {
+
     std::istringstream iss(input);
     std::string token;
-    while (iss >> token) {
+
+    while (iss >> token)
+    {
         if (isNumber(token)) {
-            _stack.push(std::atoi(token.c_str()));
+            
+          _stack.push(std::atoi(token.c_str()));
         } else if (isOperator(token)) {
-            if (_stack.size() < 2) throw invalidExpressionException();
-            int b = _stack.top(); _stack.pop();
-            int a = _stack.top(); _stack.pop();
-            if (token == "+") _stack.push(a + b);
-            else if (token == "-") _stack.push(a - b);
-            else if (token == "*") _stack.push(a * b);
-            else if (token == "/") {
-                if (b == 0) throw divisionByZeroException();
-                _stack.push(a / b);
-            }
+            
+          if (_stack.size() < 2) throw invalidExpressionException();
+          int b = _stack.top(); _stack.pop();
+          int a = _stack.top(); _stack.pop();
+          if (token == "+") {
+
+            _stack.push(a + b);
+          
+          } else if (token == "-") {
+
+            _stack.push(a - b);
+          
+          } else if (token == "*") {
+
+            _stack.push(a * b);
+          
+          } else if (token == "/") {
+            
+            if (b == 0) throw divisionByZeroException();
+            
+            _stack.push(a / b);
+          }
         } else {
-            throw badCharacterException();
+     
+          throw badCharacterException();
         }
     }
-    if (_stack.size() != 1) throw invalidExpressionException();
+
+    if (_stack.size() != 1) {
+
+        throw invalidExpressionException();
+    }
 }
 
-int RPN::evaluate(void) {
-    if (_stack.empty()) throw invalidExpressionException();
-    return _stack.top();
+int RPN::evaluate( void ) {
+
+    if (_stack.empty()) {
+    
+      throw invalidExpressionException();
+    }
+    return( _stack.top() );
 }
 
-// Définitions des exceptions
-const char* RPN::divisionByZeroException::what() const throw() {
-    return "" ;//"Division by zero";
+/*                             ~~ EXCEPTION ~~                             */
+
+const char* RPN::divisionByZeroException::what() const throw()  {
+    
+    return( "" );                           //"Division by zero";
 }
-const char* RPN::badCharacterException::what() const throw() {
-    return "" ;//"Invalid character in input";
+
+const char* RPN::badCharacterException::what() const throw()  {
+
+    return( "" );                         //"Invalid character in input";
 }
 const char* RPN::invalidExpressionException::what() const throw() {
-    return "";//"Invalid RPN expression";
+
+    return( "" );                       //"Invalid RPN expression";
 }
+
+/* ====================================================================== */
+/*                                                                        */
+/* ====================================================================== */
